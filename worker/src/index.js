@@ -1478,6 +1478,16 @@ const httpServer = http.createServer((req, res) => {
               : null,
         },
         solUsd,
+        curvePoller: {
+          rpc: SOLANA_RPC.replace(/api-key=[^&]+/i, 'api-key=***'),
+          intervalMs: CURVE_POLL_MS,
+          polls: curvePolls,
+          accountsPolled: curveAccountsPolled,
+          lastUpdates: curveLastUpdates,
+          errors: curvePollErrors,
+          lastPollAt: curveLastPollAt,
+          lastError: curveLastError,
+        },
       }),
     );
   }
@@ -2125,6 +2135,8 @@ function handleCreate(d) {
     marketCapUsd,
     priceSol: token.priceSol,
     curve,
+    bondingCurveKey: String(d.bondingCurveKey ?? '').trim() || null,
+    complete: false,
     alertedGraduating: false,
     history: [{ t: Date.now(), mc: marketCapUsd, curve }],
   });
@@ -2230,6 +2242,185 @@ function handleMigrate(d) {
     },
   });
 }
+
+/* ---------- free on-chain curve poller (no PumpPortal key needed) ----------
+ *
+ * Without a funded PumpPortal API key there are no per-trade events, so the
+ * bonding curve / market cap of tracked tokens would never move and the
+ * graduating log would stay empty forever. This poller reads each tracked
+ * token's bonding-curve account straight from a Solana RPC
+ * (getMultipleAccounts, max 100 keys per call = 1 request per poll) and
+ * pushes the same token.updated patches + graduating alerts the trade
+ * handler would have produced. Buys/sells/holder counts genuinely require
+ * trade events, so in free mode those stay at their neutral defaults rather
+ * than being faked. With a working API key and trades flowing, the poller
+ * idles automatically.
+ */
+
+const SOLANA_RPC = (process.env.SOLANA_RPC ?? 'https://api.mainnet-beta.solana.com').trim();
+const CURVE_POLL_MS = Math.max(4_000, Number(process.env.CURVE_POLL_MS ?? 10_000));
+const CURVE_POLL_BATCH = 100; // getMultipleAccounts hard limit
+
+let curvePolls = 0;
+let curveAccountsPolled = 0;
+let curvePollErrors = 0;
+let curveLastPollAt = null;
+let curveLastError = null;
+let curveLastUpdates = 0;
+let curvePollDelay = CURVE_POLL_MS;
+
+/** pump.fun BondingCurve account: 8-byte discriminator, five u64 LE, bool. */
+function decodeBondingCurve(b64) {
+  const buf = Buffer.from(b64, 'base64');
+  if (buf.length < 49) return null;
+  return {
+    virtualTokenReserves: buf.readBigUInt64LE(8),
+    virtualSolReserves: buf.readBigUInt64LE(16),
+    realTokenReserves: buf.readBigUInt64LE(24),
+    realSolReserves: buf.readBigUInt64LE(32),
+    tokenTotalSupply: buf.readBigUInt64LE(40),
+    complete: buf[48] === 1,
+  };
+}
+
+function applyCurveUpdate(mint, st, dec) {
+  const vSol = Number(dec.virtualSolReserves) / 1e9; // lamports -> SOL
+  const vTok = Number(dec.virtualTokenReserves) / 1e6; // 6 decimals -> tokens
+  const supply = Number(dec.tokenTotalSupply) / 1e6 || TOTAL_SUPPLY;
+  if (!(vTok > 0)) return false;
+
+  const priceSol = vSol / vTok;
+  const marketCapUsd = Math.round(priceSol * supply * solUsd);
+  const curve = dec.complete ? 1 : curveProgress(vSol);
+
+  const completedNow = dec.complete && !st.complete;
+  const mcMoved = Math.abs(marketCapUsd - st.marketCapUsd) >= Math.max(25, st.marketCapUsd * 0.002);
+  const curveMoved = Math.abs(curve - st.curve) >= 0.001;
+  if (!mcMoved && !curveMoved && !completedNow) return false;
+
+  st.marketCapUsd = marketCapUsd;
+  st.priceSol = priceSol;
+  st.curve = curve;
+  if (completedNow) st.complete = true;
+  st.history.push({ t: Date.now(), mc: marketCapUsd, curve });
+  if (st.history.length > HISTORY_MAX) st.history.shift();
+  if (curve >= PROMISING_CURVE) promoteMint(mint);
+  if (curve >= GRAD_THRESHOLD) recordGraduatingEvent(mint);
+
+  const patch = { marketCapUsd, bondingCurveProgress: curve };
+  if (completedNow) patch.isComplete = true;
+  broadcast({ type: 'token.updated', data: { mintAddress: mint, ...patch } });
+  patchBackfill(mint, patch);
+
+  if (!st.alertedGraduating && curve >= GRADUATING_ALERT_THRESHOLD) {
+    st.alertedGraduating = true;
+    broadcast({
+      type: 'alert',
+      data: {
+        id: `grad-${mint}`,
+        type: 'about_to_graduate',
+        mintAddress: mint,
+        symbol: st.symbol,
+        message: `${Math.round(curve * 100)}% bonding curve · about to graduate`,
+        walletCount: st.traders.size,
+        totalSolVolume: Math.round(st.volumeUsd / solUsd),
+        createdAt: new Date().toISOString(),
+      },
+    });
+  }
+
+  if (completedNow) {
+    broadcast({
+      type: 'alert',
+      data: {
+        id: `grad-done-${mint}`,
+        type: 'about_to_graduate',
+        mintAddress: mint,
+        symbol: st.symbol,
+        message: 'Bonding curve complete · graduated 🎓',
+        walletCount: st.traders.size,
+        totalSolVolume: Math.round(st.volumeUsd / solUsd),
+        createdAt: new Date().toISOString(),
+      },
+    });
+  }
+  return true;
+}
+
+async function pollCurvesOnce() {
+  const candidates = [];
+  for (const [mint, st] of state) {
+    if (st.bondingCurveKey && !st.complete) candidates.push([mint, st]);
+  }
+  if (candidates.length === 0) return { polled: 0, updated: 0 };
+  candidates.sort(
+    (a, b) => new Date(b[1].createdAt).getTime() - new Date(a[1].createdAt).getTime(),
+  );
+  const batch = candidates.slice(0, CURVE_POLL_BATCH);
+
+  const res = await fetch(SOLANA_RPC, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    signal: AbortSignal.timeout(8_000),
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'getMultipleAccounts',
+      params: [
+        batch.map(([, st]) => st.bondingCurveKey),
+        { encoding: 'base64', commitment: 'confirmed' },
+      ],
+    }),
+  });
+  if (!res.ok) throw new Error(`rpc http ${res.status}`);
+  const json = await res.json();
+  if (json.error) throw new Error(json.error.message ?? 'rpc error');
+
+  let updated = 0;
+  const accounts = json.result?.value ?? [];
+  accounts.forEach((acc, i) => {
+    const entry = batch[i];
+    if (!entry || !acc || !Array.isArray(acc.data) || !acc.data[0]) return;
+    const dec = decodeBondingCurve(acc.data[0]);
+    if (!dec) return;
+    if (applyCurveUpdate(entry[0], entry[1], dec)) updated += 1;
+  });
+  return { polled: batch.length, updated };
+}
+
+function scheduleCurvePoll() {
+  const timer = setTimeout(async () => {
+    // Paid mode with working trade events: nothing to poll, check again later.
+    const tradesFlowing = PUMPPORTAL_API_KEY && !upstreamRequiresApiKey && totalTradesSeen > 0;
+    if (!tradesFlowing) {
+      try {
+        const { polled, updated } = await pollCurvesOnce();
+        curvePolls += 1;
+        curveAccountsPolled += polled;
+        curveLastUpdates = updated;
+        curveLastPollAt = new Date().toISOString();
+        curveLastError = null;
+        curvePollDelay = CURVE_POLL_MS;
+      } catch (err) {
+        curvePollErrors += 1;
+        curveLastError = String(err?.message ?? err);
+        // back off on rate limits / outages, up to 60s
+        curvePollDelay = Math.min(curvePollDelay * 2, 60_000);
+      }
+    } else {
+      curvePollDelay = CURVE_POLL_MS;
+    }
+    scheduleCurvePoll();
+  }, curvePollDelay);
+  timer.unref?.();
+}
+
+scheduleCurvePoll();
+console.log(
+  PUMPPORTAL_API_KEY
+    ? '[worker] curve poller armed as fallback (idles while trade events flow)'
+    : `[worker] FREE MODE: polling bonding curves on-chain via ${SOLANA_RPC} every ${CURVE_POLL_MS / 1000}s`,
+);
 
 function connectUpstream() {
   upstreamConnectAttempts += 1;
