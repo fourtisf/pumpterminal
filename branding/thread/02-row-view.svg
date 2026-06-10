@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00c24e"/><stop offset="55%" stop-color="#00ff66"/><stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="body" x1="16" y1="12" x2="16" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5eead4"/><stop offset="45%" stop-color="#00ff66"/><stop offset="100%" stop-color="#00c24e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="90%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pageGlow" cx="30%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.09"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 H 0 V 46" fill="none" stroke="#00ff66" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="60%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="gridMask"><rect width="1600" height="900" fill="url(#fadeY)"/></mask>
+    <g id="mark">
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009"/>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="url(#glow)"/>
+      <g clip-path="url(#sq)"><ellipse cx="11" cy="3.4" rx="12" ry="3.2" fill="#ffffff" opacity="0.06"/></g>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" stroke-width="1.3" fill="none"/>
+      <path d="M 6.4 21.6 H 9.8" stroke="#00ff66" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 22.2 10.4 H 25.6" stroke="#00ff66" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 16 6.2 V 25.4" stroke="#00ff66" stroke-opacity="0.55" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="#00ff66" opacity="0.45" filter="url(#soft)"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="url(#body)"/>
+      <rect x="13.5" y="13.3" width="2.2" height="3.4" rx="1.1" fill="#ffffff" opacity="0.35"/>
+      <circle cx="16" cy="6.2" r="3" fill="#00ff66" opacity="0.35" filter="url(#soft)"/>
+      <circle cx="16" cy="6.2" r="1.7" fill="#00ff66"/>
+      <circle cx="16" cy="6.2" r="0.8" fill="#eafff2"/>
+    </g>
+  </defs>
+  <rect width="1600" height="900" fill="#050a07"/>
+  <rect width="1600" height="900" fill="url(#pageGlow)"/>
+  <rect width="1600" height="900" fill="url(#grid)" mask="url(#gridMask)"/>
+  <path d="M 30 48 V 30 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1552 30 H 1570 V 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 30 782 V 800 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1570 782 V 800 H 1552" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <g transform="translate(120,118) scale(2.1)"><use href="#mark"/></g>
+  <text x="124" y="320" font-family="DejaVu Sans Mono, monospace" font-size="20" letter-spacing="8" fill="#00ff66">02 — ROW VIEW</text>
+  <text x="118" y="412" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5">Bloomberg density,</text>
+  <text x="118" y="492" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5">degen speed.</text>
+  <text x="122" y="556" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">Sortable columns · j/k keyboard navigation ·</text>
+  <text x="122" y="592" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">one keystroke from feed to token page.</text>
+  <rect x="880" y="170" width="588" height="470" fill="#0a120c" stroke="#16271c" stroke-width="1.5"/>
+  <rect x="880" y="170" width="588" height="40" fill="#071009" stroke="#16271c" stroke-width="1.5"/>
+  <circle cx="902" cy="190" r="5" fill="#ff4d4d" opacity="0.6"/>
+  <circle cx="920" cy="190" r="5" fill="#ffb000" opacity="0.6"/>
+  <circle cx="938" cy="190" r="5" fill="#00ff66" opacity="0.6"/>
+  <text x="958" y="195" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">live feed — rows</text>
+  <rect x="1402" y="178" width="52" height="24" fill="none" stroke="#00ff66" stroke-opacity="0.4"/>
+  <text x="1414" y="195" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#00ff66" letter-spacing="2">LIVE</text><g font-family="DejaVu Sans Mono, monospace" font-size="14" fill="#5a6b60" letter-spacing="2">
+  <text x="906" y="248">TOKEN</text><text x="1056" y="248">AGE</text>
+  <text x="1136" y="248" fill="#00ff66">MC ▼</text><text x="1246" y="248">HLDRS</text>
+  <text x="1330" y="248">B/S</text><text x="1408" y="248">CURVE</text></g>
+  <line x1="882" y1="262" x2="1466" y2="262" stroke="#16271c" stroke-width="1.5"/><g font-family="DejaVu Sans Mono, monospace" font-size="16">
+    <text x="906" y="300" fill="#d8f0dd" font-weight="bold">$GOAT</text>
+    <text x="1056" y="300" fill="#79917f">2m</text>
+    <text x="1136" y="300" fill="#d8f0dd" font-weight="bold">$12.7M</text>
+    <text x="1246" y="300" fill="#79917f">214</text>
+    <text x="1330" y="300"><tspan fill="#00ff66">98</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">12</tspan></text>
+    <text x="1408" y="300" fill="#79917f">88%</text></g><line x1="882" y1="318" x2="1466" y2="318" stroke="#16271c" stroke-opacity="0.6"/><g font-family="DejaVu Sans Mono, monospace" font-size="16">
+    <text x="906" y="356" fill="#d8f0dd" font-weight="bold">$WIF</text>
+    <text x="1056" y="356" fill="#79917f">5m</text>
+    <text x="1136" y="356" fill="#d8f0dd" font-weight="bold">$152M</text>
+    <text x="1246" y="356" fill="#79917f">1.2K</text>
+    <text x="1330" y="356"><tspan fill="#00ff66">64</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">31</tspan></text>
+    <text x="1408" y="356" fill="#79917f">64%</text></g><line x1="882" y1="374" x2="1466" y2="374" stroke="#16271c" stroke-opacity="0.6"/><rect x="882" y="382" width="584" height="48" fill="#00ff66" fill-opacity="0.06"/><rect x="882" y="382" width="3" height="48" fill="#00ff66"/><g font-family="DejaVu Sans Mono, monospace" font-size="16">
+    <text x="906" y="412" fill="#d8f0dd" font-weight="bold">$AGENT</text>
+    <text x="1056" y="412" fill="#79917f">31s</text>
+    <text x="1136" y="412" fill="#d8f0dd" font-weight="bold">$48.2K</text>
+    <text x="1246" y="412" fill="#79917f">47</text>
+    <text x="1330" y="412"><tspan fill="#00ff66">82</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">12</tspan></text>
+    <text x="1408" y="412" fill="#79917f">21%</text></g><line x1="882" y1="430" x2="1466" y2="430" stroke="#16271c" stroke-opacity="0.6"/><g font-family="DejaVu Sans Mono, monospace" font-size="16">
+    <text x="906" y="468" fill="#d8f0dd" font-weight="bold">$PNUT</text>
+    <text x="1056" y="468" fill="#79917f">8m</text>
+    <text x="1136" y="468" fill="#d8f0dd" font-weight="bold">$42.1M</text>
+    <text x="1246" y="468" fill="#79917f">864</text>
+    <text x="1330" y="468"><tspan fill="#00ff66">51</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">24</tspan></text>
+    <text x="1408" y="468" fill="#79917f">—</text></g><line x1="882" y1="486" x2="1466" y2="486" stroke="#16271c" stroke-opacity="0.6"/><g font-family="DejaVu Sans Mono, monospace" font-size="16">
+    <text x="906" y="524" fill="#d8f0dd" font-weight="bold">$DOGEAI</text>
+    <text x="1056" y="524" fill="#79917f">1m</text>
+    <text x="1136" y="524" fill="#d8f0dd" font-weight="bold">$22.4K</text>
+    <text x="1246" y="524" fill="#79917f">28</text>
+    <text x="1330" y="524"><tspan fill="#00ff66">19</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">4</tspan></text>
+    <text x="1408" y="524" fill="#79917f">9%</text></g><line x1="882" y1="596" x2="1466" y2="596" stroke="#16271c" stroke-width="1.5"/>
+  <text x="906" y="624" font-family="DejaVu Sans Mono, monospace" font-size="14" letter-spacing="2" fill="#5a6b60">j/k navigate · enter open · click headers to sort</text>
+  <rect x="0" y="836" width="1600" height="64" fill="#070f0a"/>
+  <rect x="0" y="836" width="1600" height="2" fill="#16271c"/>
+  <rect x="0" y="836" width="150" height="64" fill="#00ff66"/>
+  <text x="34" y="876" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="20" fill="#02160a" letter-spacing="3">▮ LIVE</text>
+  <text x="186" y="876" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#79917f" letter-spacing="3">MAINNET·SOLANA</text>
+  <text x="1566" y="876" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="20" fill="#00ff66" letter-spacing="3">pumpterminal.click</text></svg>
