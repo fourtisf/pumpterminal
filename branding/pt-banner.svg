@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <defs>
+    <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00c24e"/><stop offset="55%" stop-color="#00ff66"/><stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="body" x1="16" y1="12" x2="16" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5eead4"/><stop offset="45%" stop-color="#00ff66"/><stop offset="100%" stop-color="#00c24e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="90%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pageGlow" cx="28%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.10"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 H 0 V 46" fill="none" stroke="#00ff66" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000000" opacity="0.14"/>
+    </pattern>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="gridMask"><rect width="1500" height="500" fill="url(#fadeY)"/></mask>
+    <g id="mark">
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009"/>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="url(#glow)"/>
+      <g clip-path="url(#sq)"><ellipse cx="11" cy="3.4" rx="12" ry="3.2" fill="#ffffff" opacity="0.06"/></g>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" stroke-width="1.3" fill="none"/>
+      <path d="M 6.4 21.6 H 9.8" stroke="#00ff66" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 22.2 10.4 H 25.6" stroke="#00ff66" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 16 6.2 V 25.4" stroke="#00ff66" stroke-opacity="0.55" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="#00ff66" opacity="0.45" filter="url(#soft)"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="url(#body)"/>
+      <rect x="13.5" y="13.3" width="2.2" height="3.4" rx="1.1" fill="#ffffff" opacity="0.35"/>
+      <circle cx="16" cy="6.2" r="3" fill="#00ff66" opacity="0.35" filter="url(#soft)"/>
+      <circle cx="16" cy="6.2" r="1.7" fill="#00ff66"/>
+      <circle cx="16" cy="6.2" r="0.8" fill="#eafff2"/>
+    </g>
+  </defs>
+
+  <!-- base -->
+  <rect width="1500" height="500" fill="#050a07"/>
+  <rect width="1500" height="500" fill="url(#pageGlow)"/>
+  <rect width="1500" height="500" fill="url(#grid)" mask="url(#gridMask)"/>
+
+  <!-- HUD corner ticks -->
+  <path d="M 26 40 V 26 H 40" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1460 26 H 1474 V 40" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 26 460 V 474 H 40" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1474 460 V 474 H 1460" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+
+  <!-- lockup -->
+  <g transform="translate(150,148) scale(5.6)"><use href="#mark"/></g>
+  <text x="368" y="256" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="76" fill="#d8f0dd" letter-spacing="-2.5">PumpTerminal</text>
+  <text x="375" y="312" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f" letter-spacing="8">PUMP.FUN TRADING TERMINAL</text>
+
+  <!-- chips -->
+  <g font-family="DejaVu Sans Mono, monospace" font-size="14" letter-spacing="3">
+    <rect x="375" y="338" width="118" height="32" fill="none" stroke="#00ff66" stroke-opacity="0.35"/>
+    <circle cx="394" cy="354" r="3.5" fill="#00ff66"/>
+    <text x="404" y="359" fill="#00ff66">LIVE</text>
+    <rect x="505" y="338" width="196" height="32" fill="none" stroke="#16271c"/>
+    <text x="521" y="359" fill="#79917f">NARRATIVES</text>
+    <rect x="713" y="338" width="220" height="32" fill="none" stroke="#16271c"/>
+    <text x="729" y="359" fill="#79917f">GRADUATIONS</text>
+  </g>
+
+  <!-- terminal panel right -->
+  <g>
+    <rect x="1015" y="96" width="420" height="296" fill="#0a120c" stroke="#16271c" stroke-width="1.5"/>
+    <rect x="1015" y="96" width="420" height="40" fill="#071009" stroke="#16271c" stroke-width="1.5"/>
+    <circle cx="1037" cy="116" r="5" fill="#ff4d4d" opacity="0.6"/>
+    <circle cx="1055" cy="116" r="5" fill="#ffb000" opacity="0.6"/>
+    <circle cx="1073" cy="116" r="5" fill="#00ff66" opacity="0.6"/>
+    <text x="1092" y="121" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">pumpterminal — live tape</text>
+    <rect x="1369" y="104" width="52" height="24" fill="none" stroke="#00ff66" stroke-opacity="0.4"/>
+    <text x="1381" y="121" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#00ff66" letter-spacing="2">LIVE</text>
+
+    <g font-family="DejaVu Sans Mono, monospace" font-size="14.5">
+      <text x="1037" y="172"><tspan fill="#5a6b60">[12:04:01]</tspan> <tspan fill="#00ff66">▶</tspan> <tspan fill="#d8f0dd" font-weight="bold">$WIF</tspan>  <tspan fill="#79917f">MC $152M · curve 64%</tspan></text>
+      <text x="1037" y="204"><tspan fill="#5a6b60">[12:04:07]</tspan> <tspan fill="#00ff66">▶</tspan> <tspan fill="#d8f0dd" font-weight="bold">$AGENT</tspan> <tspan fill="#79917f">MC $48K · curve 21%</tspan></text>
+      <text x="1037" y="236"><tspan fill="#5a6b60">[12:04:11]</tspan> <tspan fill="#ffb000">◆</tspan> <tspan fill="#d8f0dd" font-weight="bold">$PNUT</tspan>  <tspan fill="#79917f">smart money +$48K</tspan></text>
+      <text x="1037" y="268"><tspan fill="#5a6b60">[12:04:18]</tspan> <tspan fill="#00ff66">▶</tspan> <tspan fill="#d8f0dd" font-weight="bold">$GOAT</tspan>  <tspan fill="#79917f">MC $12.7M · curve 88%</tspan></text>
+      <text x="1037" y="300"><tspan fill="#5a6b60">[12:04:22]</tspan> <tspan fill="#36c6ff">▲</tspan> <tspan fill="#d8f0dd" font-weight="bold">$AGENT</tspan> <tspan fill="#79917f">graduating · 92%</tspan></text>
+      <text x="1037" y="346"><tspan fill="#00ff66">$</tspan> <tspan fill="#00ff66">▌</tspan></text>
+    </g>
+  </g>
+
+  <!-- url -->
+  <text x="1434" y="448" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#00ff66" letter-spacing="3">pumpterminal.click</text>
+</svg>
