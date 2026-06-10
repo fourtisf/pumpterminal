@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { CommandPalette } from '@/components/CommandPalette';
+import { useConnectionStore } from '@/lib/connection-store';
 import { useTickerPrices } from '@/hooks/use-ticker-prices';
 
 function utcClock(d: Date): string {
@@ -8,21 +10,40 @@ function utcClock(d: Date): string {
   return `${p(d.getUTCHours())}:${p(d.getUTCMinutes())}:${p(d.getUTCSeconds())}`;
 }
 
+const MODE_STYLE = {
+  live: 'bg-green text-black',
+  reconnecting: 'bg-amber text-black animate-pulse-line',
+  demo: 'bg-bg-elev-2 text-text-dim border-r border-border',
+} as const;
+
+const MODE_LABEL = {
+  live: '▮ LIVE',
+  reconnecting: '▮ RECONNECT',
+  demo: '▮ DEMO',
+} as const;
+
 /**
- * Global terminal chrome: four HUD corner ticks framing the viewport and a
- * fixed tmux-style status bar along the bottom (mode block, network, SOL/USD,
- * ticking UTC clock). Rendered once in the root layout; body reserves 28px
- * of bottom padding for the bar.
+ * Global terminal chrome: four HUD corner ticks framing the viewport, a
+ * fixed tmux-style status bar along the bottom (honest connection mode,
+ * network, SOL/USD, ticking UTC clock), and the Ctrl+K command palette.
+ * Rendered once in the root layout; body reserves 28px of bottom padding
+ * for the bar.
  */
 export function TerminalChrome(): JSX.Element {
   const [now, setNow] = useState<Date | null>(null);
   const { solPrice } = useTickerPrices();
+  const status = useConnectionStore((s) => s.status);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setNow(new Date());
     const id = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(id);
   }, []);
+
+  // before hydration, render the configured-mode default to avoid mismatch
+  const mode = mounted ? status : (process.env.NEXT_PUBLIC_WS_URL ? 'live' : 'demo');
 
   const corner = 'fixed w-3.5 h-3.5 border-green/40 pointer-events-none z-[9997]';
 
@@ -39,8 +60,8 @@ export function TerminalChrome(): JSX.Element {
         className="fixed bottom-0 left-0 right-0 z-[9996] h-7 flex items-stretch font-mono text-[9px] uppercase tracking-[0.15em] border-t border-border select-none"
         style={{ background: 'rgba(5, 10, 7, 0.96)' }}
       >
-        <span className="flex items-center px-3 bg-green text-black font-bold tracking-[0.2em]">
-          ▮ LIVE
+        <span className={`flex items-center px-3 font-bold tracking-[0.2em] ${MODE_STYLE[mode]}`}>
+          {MODE_LABEL[mode]}
         </span>
         <span className="hidden sm:flex items-center px-3 border-r border-border text-text-dim">
           MAINNET·SOLANA
@@ -49,7 +70,10 @@ export function TerminalChrome(): JSX.Element {
           PUMP_TERMINAL v0.1
         </span>
 
-        <span className="ml-auto hidden sm:flex items-center px-3 border-l border-border text-text-dim">
+        <span className="ml-auto hidden lg:flex items-center px-3 border-l border-border text-text-muted">
+          CTRL+K <span className="ml-1.5 text-text-dim">PALETTE</span>
+        </span>
+        <span className="hidden sm:flex items-center px-3 border-l border-border text-text-dim">
           SOL <span className="text-green ml-1.5">{solPrice ? `$${solPrice.toFixed(2)}` : '—'}</span>
         </span>
         <span className="flex items-center px-3 border-l border-border text-text-dim">
@@ -57,6 +81,8 @@ export function TerminalChrome(): JSX.Element {
           <span className="ml-1.5 text-text-muted">UTC</span>
         </span>
       </div>
+
+      <CommandPalette />
     </>
   );
 }

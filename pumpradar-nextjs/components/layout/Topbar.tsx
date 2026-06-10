@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Logo } from '@/components/Logo';
+import { useConnectionStore } from '@/lib/connection-store';
 import { useProStore } from '@/lib/pro-store';
 import { SOCIAL } from '@/lib/social';
 
@@ -19,6 +20,31 @@ const BASE_NAV = [
 
 function isActive(pathname: string, href: string): boolean {
   return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+/** Honest connection indicator — reflects the actual WebSocket state. */
+function ConnectionPill(): JSX.Element {
+  const status = useConnectionStore((s) => s.status);
+  const cfg = {
+    live: { label: 'LIVE', dot: 'bg-green', cls: 'text-text-dim border-border' },
+    reconnecting: {
+      label: 'RECONNECT',
+      dot: 'bg-amber animate-pulse-dot',
+      cls: 'text-amber border-amber/40',
+    },
+    demo: { label: 'DEMO', dot: 'bg-text-muted', cls: 'text-text-muted border-border' },
+  }[status];
+
+  return (
+    <div
+      className={`hidden md:inline-flex items-center gap-1.5 font-mono text-[10px] px-2.5 py-1 border rounded uppercase tracking-wider ${cfg.cls}`}
+    >
+      <span
+        className={`w-1.5 h-1.5 rounded-full ${cfg.dot} ${status === 'live' ? 'animate-pulse-dot shadow-[0_0_8px_#00ff66]' : ''}`}
+      />
+      <span>{cfg.label}</span>
+    </div>
+  );
 }
 
 export function Topbar(): JSX.Element {
@@ -41,11 +67,14 @@ export function Topbar(): JSX.Element {
       style={{ background: 'rgba(5, 10, 7, 0.9)' }}
     >
       <Link href="/" className="flex items-center gap-2.5 text-text no-underline">
-        <Logo size={28} />
+        <Logo size={28} static />
         <div className="flex flex-col leading-none">
           <span className="font-mono text-[15px] font-bold tracking-wide">
             PUMP<span className="text-green">_</span>TERMINAL
-            <span className="term-cursor ml-1" aria-hidden />
+            <span
+              className="inline-block w-[0.5em] h-[1em] bg-green ml-1 align-text-bottom"
+              aria-hidden
+            />
           </span>
           <span className="font-mono text-[8px] text-text-muted tracking-[0.2em] mt-0.5">
             v0.1 · MAINNET
@@ -98,10 +127,7 @@ export function Topbar(): JSX.Element {
           )}
         </button>
 
-        <div className="hidden md:inline-flex items-center gap-1.5 font-mono text-[10px] text-text-dim px-2.5 py-1 border border-border rounded uppercase tracking-wider">
-          <span className="status-dot" />
-          <span>LIVE</span>
-        </div>
+        <ConnectionPill />
         <a
           href={SOCIAL.x.url}
           target="_blank"

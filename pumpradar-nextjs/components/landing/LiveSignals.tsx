@@ -1,11 +1,17 @@
 'use client';
 
 import { useMemo } from 'react';
-import { useLiveFeed } from '@/hooks/use-live-feed';
+import type { SmartMoneyAlert, Token } from '@/types';
 import { formatUsd } from '@/lib/utils';
 
-export function LiveSignals(): JSX.Element {
-  const { tokens, alerts, live, connected } = useLiveFeed();
+interface LiveSignalsProps {
+  tokens: Token[];
+  alerts: SmartMoneyAlert[];
+  live: boolean;
+  connected: boolean;
+}
+
+export function LiveSignals({ tokens, alerts, live, connected }: LiveSignalsProps): JSX.Element {
 
   const stats = useMemo(() => {
     const hourAgo = Date.now() - 3_600_000;

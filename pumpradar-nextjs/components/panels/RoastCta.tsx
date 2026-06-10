@@ -25,10 +25,10 @@ export function RoastCta(): JSX.Element {
       >
         <div
           aria-hidden
-          className="absolute -top-2 -right-2 text-[60px] opacity-10"
+          className="absolute -top-2 -right-2 text-[60px] opacity-10 text-red font-mono"
           style={{ transform: 'rotate(15deg)' }}
         >
-          🔥
+          ▲
         </div>
 
         <div className="font-mono text-base font-bold text-text mb-1 tracking-tight">

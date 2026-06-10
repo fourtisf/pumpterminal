@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Topbar } from '@/components/layout/Topbar';
 import { TickerTape } from '@/components/layout/TickerTape';
-import { LiveSignals } from '@/components/landing/LiveSignals';
+import { LandingLive } from '@/components/landing/LandingLive';
 import { LivePreview } from '@/components/landing/LivePreview';
 import { SOCIAL } from '@/lib/social';
 
@@ -119,7 +119,7 @@ export default function HomePage(): JSX.Element {
 
           <div className="rise rise-3 mt-8 flex items-center justify-center gap-4 flex-wrap">
             <Link href="/live" className="btn-term px-5 py-2.5 text-[12px]">
-              Open the live feed →
+              ▶ Open the live feed
             </Link>
             <Link
               href="/pricing"
@@ -129,29 +129,8 @@ export default function HomePage(): JSX.Element {
             </Link>
           </div>
 
-          {/* terminal block */}
-          <div className="rise rise-4 mt-12 mx-auto max-w-2xl text-left bg-bg-elev/90 border border-border rounded-lg overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,255,102,0.2),0_0_0_1px_rgba(0,255,102,0.06)] backdrop-blur-sm">
-            <div className="flex items-center gap-1.5 px-4 py-2 border-b border-border bg-bg">
-              <span className="w-2.5 h-2.5 rounded-full bg-red/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
-              <span className="w-2.5 h-2.5 rounded-full bg-green/60" />
-              <span className="ml-3 font-mono text-[10px] text-text-muted">pump_terminal — live</span>
-              <span className="ml-auto font-mono text-[9px] text-text-muted tracking-[0.2em]">TTY1</span>
-            </div>
-            <pre className="p-5 font-mono text-[12px] leading-relaxed text-text-dim whitespace-pre-wrap">
-<span className="text-amber">[ boot  ]</span>{` pump_terminal v0.1 · mainnet
-`}<span className="text-green">[  ok   ]</span>{` pump.fun firehose connected
-`}<span className="text-green">[  ok   ]</span>{` narrative classifier online
-`}<span className="text-green">[  ok   ]</span>{` bonding-curve tracker armed
-`}<span className="text-green">[  ok   ]</span>{` wallet roaster loaded `}<span className="text-red">🔥</span>
-{`
-`}<span className="text-blue">[ live  ]</span>{` watching every launch so you don't have to
-`}<span className="text-green">[ ready ]</span>{` ▶ `}<span className="text-green">/live</span>
-<span className="term-cursor ml-1 align-middle" aria-hidden />
-            </pre>
-          </div>
-
-          <LiveSignals />
+          {/* terminal window — real launches streaming above the fold */}
+          <LandingLive />
         </div>
       </section>
 
@@ -252,7 +231,7 @@ export default function HomePage(): JSX.Element {
               href="/pricing"
               className="bg-amber text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded hover:brightness-110 hover:shadow-[0_0_16px_rgba(255,176,0,0.35)]"
             >
-              See what&apos;s in Pro →
+              ▶ See what&apos;s in Pro
             </Link>
             <Link href="/live" className="font-mono text-[11px] text-text-dim hover:text-green">
               or just try the free feed

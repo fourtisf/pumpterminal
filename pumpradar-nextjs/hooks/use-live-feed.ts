@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { SmartMoneyAlert, Token, WsMessage } from '@/types';
+import { useConnectionStore } from '@/lib/connection-store';
 import { MOCK_TOKENS } from '@/lib/mock-data';
 
 const MAX_FEED_SIZE = 100;
@@ -56,9 +57,12 @@ export function useLiveFeed(opts: UseLiveFeedOptions = {}): LiveFeedState {
   const paused = opts.paused ?? false;
 
   useEffect(() => {
+    const setGlobalStatus = useConnectionStore.getState().setStatus;
+
     // --- Mock mode: no WS URL configured ---
     if (!wsUrl) {
       setConnected(true);
+      setGlobalStatus('demo');
       const scheduleNext = (): void => {
         const delay = 3000 + Math.random() * 5000;
         mockTimer.current = setTimeout(() => {
@@ -91,6 +95,7 @@ export function useLiveFeed(opts: UseLiveFeedOptions = {}): LiveFeedState {
     if (paused) return;
 
     let disposed = false;
+    setGlobalStatus('reconnecting');
 
     const connect = (): void => {
       if (disposed) return;
@@ -99,6 +104,7 @@ export function useLiveFeed(opts: UseLiveFeedOptions = {}): LiveFeedState {
 
       ws.onopen = () => {
         setConnected(true);
+        setGlobalStatus('live');
         ws.send(JSON.stringify({ type: 'subscribe', channel: 'token.created' }));
       };
 
@@ -161,6 +167,7 @@ export function useLiveFeed(opts: UseLiveFeedOptions = {}): LiveFeedState {
       ws.onclose = () => {
         setConnected(false);
         if (!disposed) {
+          setGlobalStatus('reconnecting');
           reconnectTimer.current = setTimeout(connect, RECONNECT_DELAY_MS);
         }
       };

@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils';
+import type { FeedView } from './FeedGrid';
 
 interface FeedHeaderProps {
   totalLaunches: number;
@@ -13,6 +14,8 @@ interface FeedHeaderProps {
   onPauseToggle: (paused: boolean) => void;
   cols: 1 | 2;
   onCycleCols: () => void;
+  view?: FeedView;
+  onToggleView?: () => void;
   onExport?: () => void;
 }
 
@@ -25,6 +28,8 @@ export function FeedHeader({
   onPauseToggle,
   cols,
   onCycleCols,
+  view = 'cards',
+  onToggleView,
   onExport,
 }: FeedHeaderProps): JSX.Element {
   const handlePause = (): void => {
@@ -35,8 +40,7 @@ export function FeedHeader({
     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 pb-4 border-b border-border">
       <div className="min-w-0">
         <h1 className="font-mono text-xl sm:text-2xl font-bold tracking-tight mb-1.5 uppercase">
-          <span className="text-green mr-2">&gt;</span>LIVE<span className="text-green">_</span>FEED
-          <span className="term-cursor ml-1.5" aria-hidden />
+          <span className="text-green glow-green mr-2">&gt;</span>LIVE<span className="text-green">_</span>FEED
         </h1>
         <div className="font-mono text-[10px] sm:text-[11px] text-text-muted uppercase tracking-wider flex items-center gap-2 sm:gap-3 flex-wrap">
           <span>{scopeLabel}</span>
@@ -55,7 +59,14 @@ export function FeedHeader({
         <CtrlButton active={paused} onClick={handlePause}>
           {paused ? '▶ RESUME' : '⏸ PAUSE'}
         </CtrlButton>
-        <CtrlButton onClick={onCycleCols}>⚙ {cols} COL{cols > 1 ? 'S' : ''}</CtrlButton>
+        {onToggleView && (
+          <CtrlButton active={view === 'rows'} onClick={onToggleView}>
+            {view === 'rows' ? '≣ ROWS' : '▦ CARDS'}
+          </CtrlButton>
+        )}
+        {view === 'cards' && (
+          <CtrlButton onClick={onCycleCols}>▦ {cols} COL{cols > 1 ? 'S' : ''}</CtrlButton>
+        )}
         {onExport && <CtrlButton onClick={onExport}>↓ CSV</CtrlButton>}
       </div>
     </div>

@@ -17,11 +17,24 @@ import { SOCIAL } from '@/lib/social';
 export default function LivePage(): JSX.Element {
   const [paused, setPaused] = useState(false);
   const [cols, setCols] = useState<1 | 2>(2);
+  const [view, setView] = useState<'cards' | 'rows'>('cards');
   const { tokens, alerts, live } = useLiveFeed({ paused });
   useWatchAlerts(tokens);
   const isPro = useProStore((s) => s.isPro);
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    const saved = window.localStorage.getItem('pt.feedview');
+    if (saved === 'rows' || saved === 'cards') setView(saved);
+  }, []);
+
+  const toggleView = (): void => {
+    setView((v) => {
+      const next = v === 'cards' ? 'rows' : 'cards';
+      window.localStorage.setItem('pt.feedview', next);
+      return next;
+    });
+  };
 
   const handleExport = (): void => {
     if (tokens.length === 0) return;
@@ -47,10 +60,12 @@ export default function LivePage(): JSX.Element {
             onPauseToggle={setPaused}
             cols={cols}
             onCycleCols={() => setCols((c) => (c === 1 ? 2 : 1))}
+            view={view}
+            onToggleView={toggleView}
             onExport={mounted && isPro ? handleExport : undefined}
           />
           <StatsStrip tokens={tokens} live={live} />
-          <FeedGrid tokens={tokens} cols={cols} />
+          <FeedGrid tokens={tokens} cols={cols} view={view} loading={live && tokens.length === 0} />
         </section>
 
         <RightPanel tokens={tokens} alerts={alerts} live={live} />

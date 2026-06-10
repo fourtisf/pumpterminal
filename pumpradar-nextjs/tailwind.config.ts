@@ -21,7 +21,7 @@ const config: Config = {
         text: {
           DEFAULT: '#d8f0dd',
           dim: '#79917f',
-          muted: '#48584c',
+          muted: '#5a6b60',
         },
         // Accent palette — phosphor green primary, terminal amber secondary
         green: {
