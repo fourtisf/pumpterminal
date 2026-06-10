@@ -1,0 +1,10 @@
+{
+  "_comment": "Curated registry of well-known Solana wallets. Copy to ~/.pumpradar-known-wallets.json (or set WALLETS_REGISTRY env to a path), drop the _comment key, add real entries.",
+  "_example": {
+    "<base58-wallet-address>": {
+      "name": "Display name (e.g. Ansem)",
+      "twitter": "x-handle-without-@ (e.g. blknoiz06)",
+      "avatar": "https://full-image-url.example/pfp.png"
+    }
+  }
+}

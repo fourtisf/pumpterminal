@@ -1,0 +1,13 @@
+{
+  "name": "pumpradar-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "PumpPortal -> browser WebSocket bridge for the PumpRadar live feed",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
