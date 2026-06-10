@@ -3,13 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    /* slashed zeros — unmistakably terminal */
-    font-feature-settings: 'zero' 1;
-  }
-
   html, body {
-    @apply bg-bg text-text font-mono antialiased;
+    @apply bg-bg text-text font-sans antialiased;
     background-image:
       radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 255, 102, 0.05) 0%, transparent 60%);
     overflow-x: hidden;

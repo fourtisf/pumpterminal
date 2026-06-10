@@ -35,11 +35,14 @@ const config: Config = {
         pink: { DEFAULT: '#ff6bcb' },
       },
       fontFamily: {
-        // One typeface everywhere — hierarchy comes from weight/size/color,
-        // like a real trading terminal.
-        mono: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
-        display: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
-        sans: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
+        // DegenZone-style: Inter everywhere. `mono` intentionally maps to
+        // Inter too — the whole UI was written with font-mono classes during
+        // the terminal era, and this one mapping migrates it all. Genuine
+        // terminal artifacts (live tape) opt back in via `font-term`.
+        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-inter-tight)', 'Inter Tight', 'Inter', 'system-ui', 'sans-serif'],
+        term: ['var(--font-jetbrains)', 'JetBrains Mono', 'monospace'],
       },
       // Hard 90° corners across the whole app (overrides the default scale);
       // `full` stays round for dots and pills.

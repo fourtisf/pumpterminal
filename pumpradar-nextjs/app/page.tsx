@@ -106,7 +106,7 @@ export default function HomePage(): JSX.Element {
           <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.3em] mb-4">
             <span className="type-in">pump.fun trading terminal · v0.1</span>
           </div>
-          <h1 className="rise rise-1 font-mono font-bold text-4xl sm:text-6xl tracking-tight leading-[1.08]">
+          <h1 className="rise rise-1 font-display font-extrabold text-5xl sm:text-[68px] tracking-[-0.03em] leading-[1.04]">
             Hunt the next{' '}
             <span className="text-green glow-green phosphor-flicker">100x</span>
             <br />
@@ -242,7 +242,7 @@ export default function HomePage(): JSX.Element {
 
       <footer className="border-t border-border bg-bg-elev py-6 px-5 font-mono text-[10px] text-text-muted uppercase tracking-wider">
         <div className="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-3">
-          <span>pump_terminal · v0.1 · mainnet beta</span>
+          <span>PumpTerminal · v0.1 · mainnet beta</span>
           <span className="text-text-muted">not financial advice · trade at your own risk</span>
           <div className="flex items-center gap-4">
             <Link href="/live" className="hover:text-green">live</Link>

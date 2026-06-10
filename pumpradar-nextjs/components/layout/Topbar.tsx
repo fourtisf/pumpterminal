@@ -67,17 +67,13 @@ export function Topbar(): JSX.Element {
       style={{ background: 'rgba(5, 10, 7, 0.9)' }}
     >
       <Link href="/" className="flex items-center gap-2.5 text-text no-underline">
-        <Logo size={28} static />
+        <Logo size={28} />
         <div className="flex flex-col leading-none">
-          <span className="font-mono text-[15px] font-bold tracking-wide">
-            PUMP<span className="text-green">_</span>TERMINAL
-            <span
-              className="inline-block w-[0.5em] h-[1em] bg-green ml-1 align-text-bottom"
-              aria-hidden
-            />
+          <span className="font-display text-[17px] font-bold tracking-tight">
+            PumpTerminal
           </span>
-          <span className="font-mono text-[8px] text-text-muted tracking-[0.2em] mt-0.5">
-            v0.1 · MAINNET
+          <span className="font-sans text-[8px] text-text-muted tracking-[0.2em] uppercase mt-0.5">
+            v0.1 · Mainnet
           </span>
         </div>
       </Link>

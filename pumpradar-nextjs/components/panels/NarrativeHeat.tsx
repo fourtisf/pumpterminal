@@ -34,7 +34,7 @@ export function NarrativeHeat({ tokens, live = false }: NarrativeHeatProps): JSX
   const maxPct = Math.max(1, ...narratives.map((n) => n.percentage));
 
   return (
-    <PanelSection title="NARRATIVE_HEAT" count={live ? 'LIVE' : 'DEMO'}>
+    <PanelSection title="NARRATIVE HEAT" count={live ? 'LIVE' : 'DEMO'}>
       {narratives.length === 0 ? (
         <div className="font-mono text-[10px] text-text-muted">Waiting for launches…</div>
       ) : (

@@ -58,19 +58,26 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
           padding: '60px',
           background: `radial-gradient(ellipse at top right, ${tierColor}33, transparent 55%), radial-gradient(ellipse at bottom left, rgba(255,77,77,0.18), transparent 60%), #050a07`,
           color: '#d8f0dd',
-          fontFamily: 'monospace',
+          fontFamily: 'sans-serif',
         }}
       >
         {/* top */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <svg width="48" height="48" viewBox="0 0 32 32">
-              <rect x="1.5" y="1.5" width="29" height="29" fill="rgba(0,255,102,0.10)" stroke="#00ff66" strokeWidth="1.6" />
-              <path d="M 7 14 L 12.5 18.5 L 7 23" stroke="#00ff66" strokeWidth="2.2" fill="none" />
-              <rect x="16" y="20.6" width="8.5" height="3" fill="#00ff66" />
+              <defs>
+                <linearGradient id="d" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#00c24e" />
+                  <stop offset="55%" stopColor="#00ff66" />
+                  <stop offset="100%" stopColor="#5eead4" />
+                </linearGradient>
+              </defs>
+              <circle cx="16" cy="16" r="14.5" fill="url(#d)" />
+              <path d="M 8.5 20.5 L 13.5 15 L 16.5 17.8 L 23.5 10.5" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <path d="M 19.6 10.5 L 23.5 10.5 L 23.5 14.4" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
             </svg>
-            <div style={{ fontSize: '28px', letterSpacing: '0.06em', fontWeight: 700, display: 'flex' }}>
-              PUMP<span style={{ color: '#00ff66' }}>_</span>TERMINAL
+            <div style={{ fontSize: '28px', letterSpacing: '-0.01em', fontWeight: 700, display: 'flex' }}>
+              PumpTerminal
             </div>
           </div>
           <div style={{ fontSize: '20px', letterSpacing: '0.2em', color: '#79917f', textTransform: 'uppercase' }}>

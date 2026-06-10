@@ -67,7 +67,7 @@ export function TerminalChrome(): JSX.Element {
           MAINNET·SOLANA
         </span>
         <span className="hidden md:flex items-center px-3 text-text-muted">
-          PUMP_TERMINAL v0.1
+          PUMPTERMINAL v0.1
         </span>
 
         <span className="ml-auto hidden lg:flex items-center px-3 border-l border-border text-text-muted">

@@ -72,7 +72,7 @@ export default function LivePage(): JSX.Element {
       </main>
 
       <footer className="border-t border-border bg-bg-elev py-2 px-5 font-mono text-[9px] text-text-muted flex items-center justify-between gap-3 uppercase tracking-wider">
-        <span>PUMP_TERMINAL · MAINNET BETA</span>
+        <span>PUMPTERMINAL · MAINNET BETA</span>
         <span className="hidden md:inline">NOT FINANCIAL ADVICE · TRADE AT YOUR OWN RISK</span>
         <a
           href={SOCIAL.x.url}

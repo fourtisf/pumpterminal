@@ -13,7 +13,7 @@ interface SmartMoneyAlertsProps {
 export function SmartMoneyAlerts({ alerts, live = false }: SmartMoneyAlertsProps): JSX.Element {
   const usingLive = live;
   const rows = usingLive ? (alerts ?? []) : MOCK_ALERTS;
-  const title = usingLive ? 'LIVE_ALERTS' : 'SMART_MONEY';
+  const title = usingLive ? 'LIVE ALERTS' : 'SMART MONEY';
 
   return (
     <div className="mb-7">

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'PUMP TERMINAL — pump.fun trading terminal';
+export const alt = 'Pump Terminal — pump.fun trading terminal';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -19,32 +19,29 @@ export default function OpengraphImage(): Response {
           background:
             'radial-gradient(ellipse at top, rgba(0,255,102,0.18) 0%, #050a07 60%)',
           color: '#d8f0dd',
-          fontFamily: 'monospace',
+          fontFamily: 'sans-serif',
         }}
       >
         {/* top row: logo + brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           <svg width="84" height="84" viewBox="0 0 32 32">
-            <rect
-              x="1.5"
-              y="1.5"
-              width="29"
-              height="29"
-              fill="rgba(0,255,102,0.10)"
-              stroke="#00ff66"
-              strokeWidth="1.6"
-            />
-            <line x1="1.5" y1="8.5" x2="30.5" y2="8.5" stroke="#00ff66" strokeOpacity="0.4" strokeWidth="1" />
-            <rect x="4" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.9" />
-            <rect x="7.5" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.45" />
-            <path d="M 7 14 L 12.5 18.5 L 7 23" stroke="#00ff66" strokeWidth="2.2" fill="none" />
-            <rect x="16" y="20.6" width="8.5" height="3" fill="#00ff66" />
+            <defs>
+              <linearGradient id="d" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stopColor="#00c24e" />
+                <stop offset="55%" stopColor="#00ff66" />
+                <stop offset="100%" stopColor="#5eead4" />
+              </linearGradient>
+            </defs>
+            <circle cx="16" cy="16" r="14.5" fill="url(#d)" />
+            <ellipse cx="12" cy="9" rx="9" ry="5.5" fill="#ffffff" opacity="0.18" />
+            <path d="M 8.5 20.5 L 13.5 15 L 16.5 17.8 L 23.5 10.5" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M 19.6 10.5 L 23.5 10.5 L 23.5 14.4" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
           </svg>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <div style={{ fontSize: '46px', letterSpacing: '0.06em', color: '#d8f0dd', fontWeight: 700, display: 'flex' }}>
-              PUMP<span style={{ color: '#00ff66' }}>_</span>TERMINAL<span style={{ color: '#00ff66' }}>▌</span>
+            <div style={{ fontSize: '46px', letterSpacing: '-0.02em', color: '#d8f0dd', fontWeight: 700, display: 'flex' }}>
+              PumpTerminal
             </div>
-            <div style={{ fontSize: '18px', letterSpacing: '0.25em', color: '#48584c', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '18px', letterSpacing: '0.25em', color: '#5a6b60', textTransform: 'uppercase' }}>
               pump.fun trading terminal · v0.1
             </div>
           </div>
@@ -56,9 +53,8 @@ export default function OpengraphImage(): Response {
             style={{
               fontSize: '84px',
               lineHeight: 1.05,
-              fontWeight: 700,
-              letterSpacing: '-0.02em',
-              fontFamily: 'monospace',
+              fontWeight: 800,
+              letterSpacing: '-0.03em',
             }}
           >
             Hunt the next <span style={{ color: '#00ff66' }}>100x</span>

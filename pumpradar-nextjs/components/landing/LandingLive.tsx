@@ -37,9 +37,9 @@ export function LandingLive(): JSX.Element {
           <span className="w-2.5 h-2.5 rounded-full bg-red/60" />
           <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
           <span className="w-2.5 h-2.5 rounded-full bg-green/60" />
-          <span className="ml-3 font-mono text-[10px] text-text-muted">pump_terminal — live tape</span>
+          <span className="ml-3 font-term text-[10px] text-text-muted">pumpterminal — live tape</span>
           <span
-            className={`ml-auto font-mono text-[9px] tracking-[0.2em] px-1.5 py-0.5 border ${
+            className={`ml-auto font-term text-[9px] tracking-[0.2em] px-1.5 py-0.5 border ${
               live && connected
                 ? 'text-green border-green/30 bg-green/[0.06]'
                 : live
@@ -51,7 +51,7 @@ export function LandingLive(): JSX.Element {
           </span>
         </div>
 
-        <div className="p-5 font-mono text-[12px] leading-relaxed text-text-dim min-h-[210px]">
+        <div className="p-5 font-term text-[12px] leading-relaxed text-text-dim min-h-[210px]">
           {BOOT_LINES.map((l) => (
             <div key={l.tag + l.text}>
               <span className={l.cls}>{l.tag}</span>
