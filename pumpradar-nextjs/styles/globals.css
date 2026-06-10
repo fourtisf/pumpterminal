@@ -4,13 +4,31 @@
 
 @layer base {
   html, body {
-    @apply bg-bg text-text font-sans antialiased;
+    @apply bg-bg text-text font-mono antialiased;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      radial-gradient(ellipse at top, rgba(0, 255, 136, 0.04) 0%, transparent 50%);
-    background-size: 32px 32px, 32px 32px, 100% 100%;
+      radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 255, 102, 0.05) 0%, transparent 60%);
     overflow-x: hidden;
+  }
+
+  /* CRT scanlines — fixed overlay above everything, never intercepts input */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.16) 0px,
+      rgba(0, 0, 0, 0.16) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
+  ::selection {
+    background: #00ff66;
+    color: #000;
   }
 
   ::-webkit-scrollbar {
@@ -20,7 +38,7 @@
     @apply bg-bg;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded;
+    @apply bg-border;
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-border-bright;
@@ -28,18 +46,25 @@
 }
 
 @layer components {
-  /* (logo mark now lives in <Logo />; the old .logo-mark CSS pseudo-element
-     hack was retired in favour of the SVG component) */
-
   /* Status dot */
   .status-dot {
     @apply w-1.5 h-1.5 rounded-full bg-green animate-pulse-dot;
     box-shadow: 0 0 8px theme('colors.green.DEFAULT');
   }
 
+  /* Blinking block cursor — append to brand text / headings */
+  .term-cursor {
+    @apply inline-block w-[0.55em] h-[1.05em] bg-green animate-blink align-text-bottom;
+  }
+
+  /* Phosphor glow for key numbers / accents */
+  .glow-green {
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.45);
+  }
+
   /* Category badges */
   .badge {
-    @apply font-mono text-[9px] px-1.5 py-[3px] rounded-[3px] uppercase tracking-wider font-semibold border;
+    @apply font-mono text-[9px] px-1.5 py-[3px] rounded-none uppercase tracking-wider font-semibold border;
   }
   .badge-ai { @apply text-blue border-blue/30 bg-blue/10; }
   .badge-meme { @apply text-pink border-pink/30 bg-pink/10; }

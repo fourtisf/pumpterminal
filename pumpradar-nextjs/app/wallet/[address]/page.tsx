@@ -45,11 +45,11 @@ function profileOf(s: WalletSnapshot): WalletClassInfo {
     klassNote = `Idle for ${Math.round(idleDays)} days. Probably abandoned or HODL-mode.`;
   } else if (s.signatureCount < 10) {
     klass = 'Fresh';
-    klassColor = '#00ff88';
+    klassColor = '#00ff66';
     klassNote = 'New wallet — too little history to judge.';
   } else if (s.balanceSol >= 50 && txInWindow / span < 5) {
     klass = 'Whale';
-    klassColor = '#ffb547';
+    klassColor = '#ffb000';
     klassNote = 'Sizeable balance, low churn. Looks like a serious holder.';
   } else if (txInWindow / span >= 10) {
     klass = 'Active Trader';
@@ -59,10 +59,10 @@ function profileOf(s: WalletSnapshot): WalletClassInfo {
 
   const consistency = activeDays / Math.max(1, Math.ceil(span));
   let grade: WalletClassInfo['grade'] = 'F';
-  let gradeColor = '#ff3d5a';
-  if (consistency >= 0.8) { grade = 'A'; gradeColor = '#00ff88'; }
+  let gradeColor = '#ff4d4d';
+  if (consistency >= 0.8) { grade = 'A'; gradeColor = '#00ff66'; }
   else if (consistency >= 0.6) { grade = 'B'; gradeColor = '#a3ff9c'; }
-  else if (consistency >= 0.4) { grade = 'C'; gradeColor = '#ffb547'; }
+  else if (consistency >= 0.4) { grade = 'C'; gradeColor = '#ffb000'; }
   else if (consistency >= 0.2) { grade = 'D'; gradeColor = '#ff8a47'; }
 
   return { klass, klassColor, klassNote, txInWindow, activeDays, spanDays: span, busiestCount, grade, gradeColor };
@@ -94,7 +94,7 @@ export default function WalletDetailPage({ params }: { params: { address: string
   const profileTwitter = ident?.twitter ?? null;
   const profileBadge =
     ident?.source === 'curated'
-      ? { label: 'VERIFIED', color: '#ffb547' }
+      ? { label: 'VERIFIED', color: '#ffb000' }
       : ident?.source === 'community'
         ? { label: 'COMMUNITY', color: '#a855f7' }
         : ident?.source === 'entity'
@@ -104,7 +104,7 @@ export default function WalletDetailPage({ params }: { params: { address: string
             : ident?.source === 'gmgn'
               ? { label: 'GMGN', color: '#a3ff9c' }
               : ident?.source === 'sns'
-                ? { label: 'SNS', color: '#00ff88' }
+                ? { label: 'SNS', color: '#00ff66' }
                 : ident?.source === 'sns-name'
                   ? { label: 'SNS', color: '#7ab8ff' }
                   : null;
@@ -301,7 +301,7 @@ export default function WalletDetailPage({ params }: { params: { address: string
                   label="PumpFun bags"
                   value={String(pumpfunBags)}
                   hint="tracked by us"
-                  accent={pumpfunBags > 0 ? '#00ff88' : undefined}
+                  accent={pumpfunBags > 0 ? '#00ff66' : undefined}
                 />
               </div>
             </div>

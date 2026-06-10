@@ -8,13 +8,13 @@ import { useProStore } from '@/lib/pro-store';
 import { SOCIAL } from '@/lib/social';
 
 const BASE_NAV = [
-  { href: '/live', label: 'Live' },
-  { href: '/trending', label: 'Trending' },
-  { href: '/narratives', label: 'Narratives' },
-  { href: '/graduating', label: 'Graduating' },
-  { href: '/wallet', label: 'Wallet' },
-  { href: '/roast', label: 'Roast' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/live', label: 'Live', fkey: 'F1' },
+  { href: '/trending', label: 'Trending', fkey: 'F2' },
+  { href: '/narratives', label: 'Narratives', fkey: 'F3' },
+  { href: '/graduating', label: 'Graduating', fkey: 'F4' },
+  { href: '/wallet', label: 'Wallet', fkey: 'F5' },
+  { href: '/roast', label: 'Roast', fkey: 'F6' },
+  { href: '/pricing', label: 'Pricing', fkey: 'F7' },
 ] as const;
 
 function isActive(pathname: string, href: string): boolean {
@@ -32,18 +32,21 @@ export function Topbar(): JSX.Element {
   }, [pathname]);
 
   const navItems = mounted && isPro
-    ? [...BASE_NAV, { href: '/watchlist', label: 'Watchlist' } as const]
+    ? [...BASE_NAV, { href: '/watchlist', label: 'Watchlist', fkey: 'F8' } as const]
     : BASE_NAV;
 
   return (
     <header
       className="sticky top-0 z-[100] h-14 flex items-center gap-3 sm:gap-6 px-4 sm:px-5 border-b border-border backdrop-blur-xl"
-      style={{ background: 'rgba(10, 11, 13, 0.85)' }}
+      style={{ background: 'rgba(5, 10, 7, 0.9)' }}
     >
       <Link href="/" className="flex items-center gap-2.5 text-text no-underline">
         <Logo size={28} />
         <div className="flex flex-col leading-none">
-          <span className="font-display text-base tracking-wider">PUMPRADAR</span>
+          <span className="font-mono text-[15px] font-bold tracking-wide">
+            PUMP<span className="text-green">_</span>TERMINAL
+            <span className="term-cursor ml-1" aria-hidden />
+          </span>
           <span className="font-mono text-[8px] text-text-muted tracking-[0.2em] mt-0.5">
             v0.1 · MAINNET
           </span>
@@ -51,33 +54,27 @@ export function Topbar(): JSX.Element {
       </Link>
 
       <nav className="hidden lg:flex gap-1 font-mono text-xs font-medium">
-        {BASE_NAV.map((item) => (
+        {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             aria-current={isActive(pathname, item.href) ? 'page' : undefined}
-            className={`px-3 py-1.5 rounded uppercase tracking-wider transition-all duration-150 hover:text-text hover:bg-bg-elev ${
+            className={`px-2.5 py-1.5 uppercase tracking-wider transition-all duration-150 hover:text-text hover:bg-bg-elev ${
               isActive(pathname, item.href)
-                ? 'text-green bg-green/10 before:content-[">"] before:mr-1 before:text-green'
+                ? 'text-green bg-green/10'
                 : 'text-text-dim'
             }`}
           >
+            <span
+              className={`mr-1.5 text-[9px] ${
+                isActive(pathname, item.href) ? 'text-green/70' : 'text-text-muted'
+              }`}
+            >
+              {item.fkey}
+            </span>
             {item.label}
           </Link>
         ))}
-        {mounted && isPro && (
-          <Link
-            href="/watchlist"
-            aria-current={isActive(pathname, '/watchlist') ? 'page' : undefined}
-            className={`px-3 py-1.5 rounded uppercase tracking-wider transition-all duration-150 hover:text-text hover:bg-bg-elev ${
-              isActive(pathname, '/watchlist')
-                ? 'text-green bg-green/10 before:content-[">"] before:mr-1 before:text-green'
-                : 'text-text-dim'
-            }`}
-          >
-            Watchlist
-          </Link>
-        )}
       </nav>
 
       <div className="ml-auto flex items-center gap-2 sm:gap-3">
@@ -108,7 +105,7 @@ export function Topbar(): JSX.Element {
           target="_blank"
           rel="noopener noreferrer"
           className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded border border-border text-text-dim hover:text-text hover:border-border-bright transition-colors"
-          aria-label={`PumpRadar on X — ${SOCIAL.x.handle}`}
+          aria-label={`Pump Terminal on X — ${SOCIAL.x.handle}`}
           title={SOCIAL.x.handle}
         >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -125,7 +122,7 @@ export function Topbar(): JSX.Element {
         ) : (
           <Link
             href="/pricing"
-            className="bg-gradient-to-r from-amber to-green text-black px-4 py-2 rounded font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-150 hover:brightness-110 hover:-translate-y-px hover:shadow-[0_4px_16px_rgba(0,255,136,0.3)]"
+            className="bg-green text-black px-4 py-2 rounded font-mono text-[11px] font-bold uppercase tracking-wider transition-all duration-150 hover:bg-green-dim hover:shadow-[0_0_16px_rgba(0,255,102,0.4)]"
           >
             UPGRADE
           </Link>
@@ -135,7 +132,7 @@ export function Topbar(): JSX.Element {
       {menuOpen && (
         <div
           className="lg:hidden absolute top-14 left-0 right-0 border-b border-border backdrop-blur-xl shadow-lg"
-          style={{ background: 'rgba(10, 11, 13, 0.95)' }}
+          style={{ background: 'rgba(5, 10, 7, 0.95)' }}
         >
           <nav className="flex flex-col py-2 font-mono text-xs">
             {navItems.map((item) => (
@@ -150,6 +147,7 @@ export function Topbar(): JSX.Element {
                     : 'text-text-dim border-l-2 border-transparent hover:text-text hover:bg-bg-elev'
                 }`}
               >
+                <span className="mr-2 text-[9px] text-text-muted">{item.fkey}</span>
                 {item.label}
               </Link>
             ))}

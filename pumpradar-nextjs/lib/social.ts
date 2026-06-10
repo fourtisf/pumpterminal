@@ -1,4 +1,4 @@
-/** PumpRadar social handles. Update once, propagate everywhere. */
+/** Pump Terminal social handles. Update once, propagate everywhere. */
 export const SOCIAL = {
   x: {
     handle: '@pumpradarsolana',

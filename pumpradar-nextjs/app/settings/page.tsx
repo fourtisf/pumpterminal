@@ -70,7 +70,7 @@ export default function SettingsPage(): JSX.Element {
           </p>
           <Link
             href="/pricing"
-            className="inline-block bg-gradient-to-r from-amber to-green text-black px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider rounded hover:brightness-110"
+            className="inline-block bg-amber text-black px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider rounded hover:brightness-110"
           >
             Unlock with Pro →
           </Link>

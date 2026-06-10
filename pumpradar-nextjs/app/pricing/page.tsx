@@ -128,7 +128,7 @@ export default function PricingPage(): JSX.Element {
             ) : (
               <button
                 onClick={enablePreview}
-                className="mt-6 w-full text-center bg-gradient-to-r from-amber to-green text-black px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider rounded hover:brightness-110"
+                className="mt-6 w-full text-center bg-amber text-black px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider rounded hover:brightness-110"
               >
                 Try Pro preview — free
               </button>
@@ -208,7 +208,7 @@ function Card({
           className="absolute inset-0 pointer-events-none opacity-50"
           style={{
             background:
-              'radial-gradient(ellipse at top, rgba(0,255,136,0.08) 0%, transparent 60%)',
+              'radial-gradient(ellipse at top, rgba(0,255,102,0.08) 0%, transparent 60%)',
           }}
         />
       )}
@@ -216,7 +216,7 @@ function Card({
         <div className="flex items-baseline justify-between mb-1">
           <div className="font-display text-2xl tracking-tight text-text">{title}</div>
           {highlight && (
-            <span className="font-mono text-[8px] text-green uppercase tracking-wider bg-green/10 px-1.5 py-0.5 rounded-[3px]">
+            <span className="font-mono text-[8px] text-green uppercase tracking-wider bg-green/10 px-1.5 py-0.5 rounded-none">
               recommended
             </span>
           )}

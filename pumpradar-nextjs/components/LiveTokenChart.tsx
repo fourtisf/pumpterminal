@@ -31,10 +31,10 @@ const TIMEFRAMES: readonly { label: string; minutes: number }[] = [
   { label: '1h', minutes: 60 },
 ];
 
-const GREEN = '#00ff88';
-const RED = '#ff3d5a';
-const GRID = '#1f2429';
-const AXIS = '#8a929c';
+const GREEN = '#00ff66';
+const RED = '#ff4d4d';
+const GRID = '#16271c';
+const AXIS = '#79917f';
 const BG = 'transparent';
 
 /** Bucket raw trade ticks into OHLC candles by `bucketMs`. */
@@ -200,7 +200,7 @@ function Footer({
         <span
           key={pulse}
           className="w-1.5 h-1.5 rounded-full bg-green animate-live-flash"
-          style={{ boxShadow: '0 0 6px #00ff88' }}
+          style={{ boxShadow: '0 0 6px #00ff66' }}
         />
         live · {count} candle{count === 1 ? '' : 's'} · {source} · drag to pan · scroll to zoom
       </span>
@@ -258,8 +258,8 @@ function ChartBody({ candles, height }: { candles: readonly Candle[]; height: nu
       },
       crosshair: {
         mode: CrosshairMode.Normal,
-        vertLine: { color: '#4a525c', width: 1, style: 3, labelBackgroundColor: '#1f2429' },
-        horzLine: { color: '#4a525c', width: 1, style: 3, labelBackgroundColor: '#1f2429' },
+        vertLine: { color: '#48584c', width: 1, style: 3, labelBackgroundColor: '#16271c' },
+        horzLine: { color: '#48584c', width: 1, style: 3, labelBackgroundColor: '#16271c' },
       },
       rightPriceScale: {
         borderColor: GRID,
@@ -404,7 +404,7 @@ function ChartBody({ candles, height }: { candles: readonly Candle[]; height: nu
     const volData: HistogramData[] = cleaned.map((c) => ({
       time: Math.floor(c.t / 1000) as Time,
       value: c.volume,
-      color: c.close >= c.open ? 'rgba(0,255,136,0.4)' : 'rgba(255,61,90,0.4)',
+      color: c.close >= c.open ? 'rgba(0,255,102,0.4)' : 'rgba(255,77,77,0.4)',
     }));
 
     const firstT = candleData[0]!.time as number;

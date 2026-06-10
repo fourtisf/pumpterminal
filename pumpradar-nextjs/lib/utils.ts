@@ -92,21 +92,21 @@ export function getCategoryBadgeClass(category: TokenCategory): string {
 }
 
 const CATEGORY_COLOR: Record<TokenCategory, string> = {
-  AI: '#4dabff',
+  AI: '#36c6ff',
   Meme: '#ff6bcb',
-  Animal: '#ffb547',
-  Political: '#ff3d5a',
+  Animal: '#ffb000',
+  Political: '#ff4d4d',
   Celebrity: '#b87cff',
-  Tech: '#00ff88',
-  Utility: '#00ff88',
+  Tech: '#00ff66',
+  Utility: '#00ff66',
   Religious: '#ff6bcb',
-  Food: '#ffb547',
-  Sports: '#4dabff',
-  Other: '#8a929c',
+  Food: '#ffb000',
+  Sports: '#36c6ff',
+  Other: '#79917f',
 };
 
 export function getCategoryColor(category: TokenCategory): string {
-  return CATEGORY_COLOR[category] ?? '#8a929c';
+  return CATEGORY_COLOR[category] ?? '#79917f';
 }
 
 /* ---------- Avatar fallback gradient ---------- */

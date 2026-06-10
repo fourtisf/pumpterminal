@@ -30,7 +30,7 @@ export function GraduatingPanel({ tokens, live = false }: GraduatingPanelProps):
     <div className="mb-7">
       <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] mb-3 flex items-center justify-between">
         <span>ABOUT TO GRADUATE</span>
-        <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-[3px] text-[9px]">
+        <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-none text-[9px]">
           {rows.length}
         </span>
       </div>
@@ -54,8 +54,8 @@ export function GraduatingPanel({ tokens, live = false }: GraduatingPanelProps):
                   className="h-full"
                   style={{
                     width: `${token.progress * 100}%`,
-                    background: 'linear-gradient(90deg, #00cc6a, #00ff88)',
-                    boxShadow: '0 0 6px rgba(0,255,136,0.4)',
+                    background: 'linear-gradient(90deg, #00c24e, #00ff66)',
+                    boxShadow: '0 0 6px rgba(0,255,102,0.4)',
                   }}
                 />
               </div>

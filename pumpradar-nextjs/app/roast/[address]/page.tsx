@@ -49,10 +49,10 @@ export default function RoastResultPage({ params }: { params: { address: string 
         <div
           className="mt-4 border rounded-lg p-5 sm:p-6 relative overflow-hidden"
           style={{
-            borderColor: roast ? `${roast.tierColor}55` : 'rgba(255,61,90,0.3)',
+            borderColor: roast ? `${roast.tierColor}55` : 'rgba(255,77,77,0.3)',
             background: roast
-              ? `radial-gradient(ellipse at top right, ${roast.tierColor}1a, transparent 60%), linear-gradient(135deg, rgba(255,61,90,0.06), rgba(255,181,71,0.03))`
-              : 'linear-gradient(135deg, rgba(255,61,90,0.10), rgba(255,181,71,0.05))',
+              ? `radial-gradient(ellipse at top right, ${roast.tierColor}1a, transparent 60%), linear-gradient(135deg, rgba(255,77,77,0.06), rgba(255,176,0,0.03))`
+              : 'linear-gradient(135deg, rgba(255,77,77,0.10), rgba(255,176,0,0.05))',
           }}
         >
           <div aria-hidden className="absolute -top-4 -right-2 text-[80px] opacity-10 rotate-12">🔥</div>

@@ -72,7 +72,7 @@ export const useProStore = create<ProStore>()(
       removeTrustedCreator: (addr) =>
         set((s) => ({ trustedCreators: s.trustedCreators.filter((a) => a !== addr) })),
     }),
-    { name: 'pumpradar.pro' },
+    { name: 'pumpterminal.pro' },
   ),
 );
 

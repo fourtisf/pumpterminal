@@ -79,7 +79,7 @@ function PanelSection({
       <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] mb-3 flex items-center justify-between">
         <span>{title}</span>
         {count && (
-          <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-[3px] text-[9px]">
+          <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-none text-[9px]">
             {count}
           </span>
         )}

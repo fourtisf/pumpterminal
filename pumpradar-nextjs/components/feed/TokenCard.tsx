@@ -89,13 +89,13 @@ export function TokenCard({ token }: TokenCardProps): JSX.Element {
         className="absolute inset-0 opacity-0 transition-opacity duration-200 pointer-events-none group-hover:opacity-100"
         style={{
           background:
-            'linear-gradient(135deg, transparent 0%, rgba(0, 255, 136, 0.04) 100%)',
+            'linear-gradient(135deg, transparent 0%, rgba(0, 255, 102, 0.04) 100%)',
         }}
       />
 
       {/* Smart money badge — top right */}
       {token.hasSmartMoney && (
-        <div className="absolute top-2 right-2 font-mono text-[8px] text-purple bg-purple/10 px-1.5 py-[3px] rounded-[3px] tracking-wider font-semibold z-10">
+        <div className="absolute top-2 right-2 font-mono text-[8px] text-purple bg-purple/10 px-1.5 py-[3px] rounded-none tracking-wider font-semibold z-10">
           ◆ SMART MONEY
         </div>
       )}
@@ -140,8 +140,8 @@ export function TokenCard({ token }: TokenCardProps): JSX.Element {
             className="h-full transition-[width] duration-500"
             style={{
               width: `${token.bondingCurveProgress * 100}%`,
-              background: 'linear-gradient(90deg, #00cc6a, #00ff88)',
-              boxShadow: '0 0 8px #00ff88',
+              background: '#00ff66',
+              boxShadow: '0 0 8px #00ff66',
             }}
           />
           <span className="absolute -top-4 right-0 font-mono text-[9px] text-text-muted">
@@ -240,7 +240,7 @@ function RiskIndicator({ level }: { level: RiskLevel }): JSX.Element {
   } as const;
 
   const { label, color, filled } = config[level];
-  const filledColor = level === 'low' ? '#00ff88' : level === 'medium' ? '#ffb547' : '#ff3d5a';
+  const filledColor = level === 'low' ? '#00ff66' : level === 'medium' ? '#ffb000' : '#ff4d4d';
 
   return (
     <div className="font-mono text-[10px] inline-flex items-center gap-1">
@@ -251,7 +251,7 @@ function RiskIndicator({ level }: { level: RiskLevel }): JSX.Element {
             key={i}
             className="w-[3px] h-2"
             style={{
-              background: i < filled ? filledColor : '#1f2429',
+              background: i < filled ? filledColor : '#16271c',
             }}
           />
         ))}

@@ -87,8 +87,8 @@ export default function TokenDetailPage({ params }: { params: { mint: string } }
                   className="h-full transition-[width] duration-500"
                   style={{
                     width: `${token.bondingCurveProgress * 100}%`,
-                    background: 'linear-gradient(90deg, #00cc6a, #00ff88)',
-                    boxShadow: '0 0 8px #00ff88',
+                    background: 'linear-gradient(90deg, #00c24e, #00ff66)',
+                    boxShadow: '0 0 8px #00ff66',
                   }}
                 />
               </div>

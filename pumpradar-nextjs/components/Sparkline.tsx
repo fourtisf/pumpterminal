@@ -6,9 +6,9 @@ interface SparklineProps {
   className?: string;
 }
 
-const GREEN = '#00ff88';
-const RED = '#ff3d5a';
-const BLUE = '#4dabff';
+const GREEN = '#00ff66';
+const RED = '#ff4d4d';
+const BLUE = '#36c6ff';
 
 export function Sparkline({ values, height = 96, bars = false, className }: SparklineProps): JSX.Element {
   const clean = values.filter((v) => Number.isFinite(v));

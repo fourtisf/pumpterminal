@@ -33,12 +33,12 @@ export default function WalletPage(): JSX.Element {
             value={addr}
             onChange={(e) => setAddr(e.target.value)}
             placeholder="wallet address…"
-            className="flex-1 bg-bg border border-border text-text px-3 py-2 font-mono text-[11px] rounded-[3px] outline-none focus:border-green"
+            className="flex-1 bg-bg border border-border text-text px-3 py-2 font-mono text-[11px] rounded-none outline-none focus:border-green"
           />
           <button
             type="submit"
             disabled={!valid}
-            className="bg-green text-black px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider rounded-[3px] disabled:opacity-40 disabled:cursor-not-allowed hover:bg-green-dim"
+            className="bg-green text-black px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider rounded-none disabled:opacity-40 disabled:cursor-not-allowed hover:bg-green-dim"
           >
             Look up
           </button>

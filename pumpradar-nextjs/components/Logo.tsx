@@ -6,10 +6,11 @@ interface LogoProps {
 }
 
 /**
- * PumpRadar mark — a radar dish (concentric arcs) with a target dot pulsing
- * at the centre. Stroke uses the brand green; the background fill is a tiny
- * green tint so the mark stays visible on the dark base. Inline SVG so it
- * scales perfectly at every size and lets us animate the centre.
+ * Pump Terminal mark — a sharp-cornered terminal window with a `>` prompt
+ * and a blinking block cursor. Stroke uses the brand phosphor green; the
+ * fill is a faint green tint so the mark stays visible on the dark base.
+ * Inline SVG so it scales perfectly at every size and lets us animate the
+ * cursor.
  */
 export function Logo({ size = 28, className, static: isStatic = false }: LogoProps): JSX.Element {
   return (
@@ -20,63 +21,60 @@ export function Logo({ size = 28, className, static: isStatic = false }: LogoPro
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="PumpRadar"
+      aria-label="Pump Terminal"
       className={className}
     >
       <defs>
-        <filter id="pr-glow" x="-50%" y="-50%" width="200%" height="200%">
+        <filter id="pt-glow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="0.9" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
-        <linearGradient id="pr-bg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#00ff88" stopOpacity="0.10" />
-          <stop offset="100%" stopColor="#00ff88" stopOpacity="0.02" />
+        <linearGradient id="pt-bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#00ff66" stopOpacity="0.10" />
+          <stop offset="100%" stopColor="#00ff66" stopOpacity="0.02" />
         </linearGradient>
       </defs>
 
-      {/* frame */}
+      {/* window frame — hard corners */}
       <rect
-        x="1.25"
-        y="1.25"
-        width="29.5"
-        height="29.5"
-        rx="7"
-        fill="url(#pr-bg)"
-        stroke="#00ff88"
+        x="1.5"
+        y="1.5"
+        width="29"
+        height="29"
+        fill="url(#pt-bg)"
+        stroke="#00ff66"
         strokeWidth="1.6"
       />
 
-      {/* outer radar arc (top-right quadrant) */}
+      {/* title bar */}
+      <line x1="1.5" y1="8.5" x2="30.5" y2="8.5" stroke="#00ff66" strokeOpacity="0.4" strokeWidth="1" />
+      <rect x="4" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.9" />
+      <rect x="7.5" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.45" />
+
+      {/* prompt chevron */}
       <path
-        d="M 16 4.5 A 11.5 11.5 0 0 1 27.5 16"
-        stroke="#00ff88"
-        strokeWidth="1.3"
-        strokeOpacity="0.32"
-        strokeLinecap="round"
+        d="M 7 14 L 12.5 18.5 L 7 23"
+        stroke="#00ff66"
+        strokeWidth="2.2"
+        fill="none"
+        filter="url(#pt-glow)"
       />
 
-      {/* mid radar arc */}
-      <path
-        d="M 16 9 A 7 7 0 0 1 23 16"
-        stroke="#00ff88"
-        strokeWidth="1.3"
-        strokeOpacity="0.6"
-        strokeLinecap="round"
-      />
-
-      {/* inner pulse ring (animated) */}
-      {!isStatic && (
-        <circle cx="16" cy="16" r="2.5" fill="none" stroke="#00ff88" strokeWidth="1">
-          <animate attributeName="r" values="2.5;9;2.5" dur="2.6s" repeatCount="indefinite" />
-          <animate attributeName="stroke-opacity" values="0.55;0;0.55" dur="2.6s" repeatCount="indefinite" />
-        </circle>
-      )}
-
-      {/* centre target dot */}
-      <circle cx="16" cy="16" r="2.4" fill="#00ff88" filter="url(#pr-glow)" />
+      {/* block cursor (blinks unless static) */}
+      <rect x="16" y="20.6" width="8.5" height="3" fill="#00ff66" filter="url(#pt-glow)">
+        {!isStatic && (
+          <animate
+            attributeName="opacity"
+            values="1;1;0;0"
+            keyTimes="0;0.5;0.5;1"
+            dur="1.1s"
+            repeatCount="indefinite"
+          />
+        )}
+      </rect>
     </svg>
   );
 }

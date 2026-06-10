@@ -12,8 +12,8 @@ export function PaywallBadge({ className, size = 'xs' }: PaywallBadgeProps): JSX
     <Link
       href="/pricing"
       className={cn(
-        'inline-flex items-center font-mono font-bold uppercase tracking-wider rounded-[3px] no-underline transition-all duration-100',
-        'bg-gradient-to-r from-amber to-green text-black hover:brightness-110',
+        'inline-flex items-center font-mono font-bold uppercase tracking-wider rounded-none no-underline transition-all duration-100',
+        'bg-amber text-black hover:brightness-110',
         size === 'xs' ? 'text-[8px] px-1.5 py-[2px]' : 'text-[10px] px-2 py-0.5',
         className,
       )}

@@ -15,7 +15,7 @@ export default function ApiDocsPage(): JSX.Element {
           The <span className="text-green">API</span>.
         </h1>
         <p className="font-mono text-[12px] text-text-dim leading-relaxed mb-8">
-          The PumpRadar worker exposes the same HTTP + WebSocket surface the web app uses. Open
+          The Pump Terminal worker exposes the same HTTP + WebSocket surface the web app uses. Open
           during beta — no auth, no rate limits, expect occasional breakage. Set <code className="text-text">NEXT_PUBLIC_WS_URL</code>
           {' '}to your own worker for full control.
         </p>

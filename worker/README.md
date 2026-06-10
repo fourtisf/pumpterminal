@@ -1,4 +1,4 @@
-# PumpRadar Worker — live data bridge
+# Pump Terminal Worker — live data bridge
 
 Minimal ingestion worker that turns the mock feed into a **real** one, with no
 database. New-launch + migration events are free; trade events need a small

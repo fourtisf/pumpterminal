@@ -26,7 +26,7 @@ export default function LivePage(): JSX.Element {
   const handleExport = (): void => {
     if (tokens.length === 0) return;
     const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-    downloadCsv(`pumpradar-feed-${stamp}.csv`, tokensToCsv(tokens));
+    downloadCsv(`pumpterminal-feed-${stamp}.csv`, tokensToCsv(tokens));
   };
 
   return (
@@ -57,14 +57,14 @@ export default function LivePage(): JSX.Element {
       </main>
 
       <footer className="border-t border-border bg-bg-elev py-2 px-5 font-mono text-[9px] text-text-muted flex items-center justify-between gap-3 uppercase tracking-wider">
-        <span>PUMPRADAR · MAINNET BETA</span>
+        <span>PUMP_TERMINAL · MAINNET BETA</span>
         <span className="hidden md:inline">NOT FINANCIAL ADVICE · TRADE AT YOUR OWN RISK</span>
         <a
           href={SOCIAL.x.url}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 hover:text-green whitespace-nowrap"
-          aria-label="PumpRadar on X"
+          aria-label="Pump Terminal on X"
         >
           <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
             <path d="M18.244 2H21l-6.52 7.45L22 22h-6.84l-4.78-6.27L4.8 22H2l7-8L1.5 2H8.5l4.32 5.71L18.244 2zm-2.4 18h1.74L7.24 4H5.36l10.484 16z" />

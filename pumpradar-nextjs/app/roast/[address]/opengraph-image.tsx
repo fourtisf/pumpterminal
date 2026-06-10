@@ -4,7 +4,7 @@ import { roastWallet } from '@/lib/roast';
 import type { WalletSnapshot } from '@/lib/solana';
 
 export const runtime = 'nodejs';
-export const alt = 'PumpRadar wallet roast';
+export const alt = 'Pump Terminal wallet roast';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -37,7 +37,7 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
   const snap = await loadSnapshot(address);
   const roast = snap ? roastWallet(snap) : null;
 
-  const tierColor = roast?.tierColor ?? '#ff3d5a';
+  const tierColor = roast?.tierColor ?? '#ff4d4d';
   const tier = roast?.tier ?? '?';
   const archetype = roast?.archetype ?? 'Unknown';
   const archetypeEmoji = roast?.archetypeEmoji ?? '🔥';
@@ -56,8 +56,8 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
           display: 'flex',
           flexDirection: 'column',
           padding: '60px',
-          background: `radial-gradient(ellipse at top right, ${tierColor}33, transparent 55%), radial-gradient(ellipse at bottom left, rgba(255,61,90,0.18), transparent 60%), #0a0b0d`,
-          color: '#e8eaed',
+          background: `radial-gradient(ellipse at top right, ${tierColor}33, transparent 55%), radial-gradient(ellipse at bottom left, rgba(255,77,77,0.18), transparent 60%), #050a07`,
+          color: '#d8f0dd',
           fontFamily: 'monospace',
         }}
       >
@@ -65,12 +65,15 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <svg width="48" height="48" viewBox="0 0 32 32">
-              <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="7" fill="rgba(0,255,136,0.10)" stroke="#00ff88" strokeWidth="1.6" />
-              <circle cx="16" cy="16" r="2.4" fill="#00ff88" />
+              <rect x="1.5" y="1.5" width="29" height="29" fill="rgba(0,255,102,0.10)" stroke="#00ff66" strokeWidth="1.6" />
+              <path d="M 7 14 L 12.5 18.5 L 7 23" stroke="#00ff66" strokeWidth="2.2" fill="none" />
+              <rect x="16" y="20.6" width="8.5" height="3" fill="#00ff66" />
             </svg>
-            <div style={{ fontSize: '28px', letterSpacing: '0.06em', fontWeight: 700 }}>PUMPRADAR</div>
+            <div style={{ fontSize: '28px', letterSpacing: '0.06em', fontWeight: 700, display: 'flex' }}>
+              PUMP<span style={{ color: '#00ff66' }}>_</span>TERMINAL
+            </div>
           </div>
-          <div style={{ fontSize: '20px', letterSpacing: '0.2em', color: '#8a929c', textTransform: 'uppercase' }}>
+          <div style={{ fontSize: '20px', letterSpacing: '0.2em', color: '#79917f', textTransform: 'uppercase' }}>
             wallet roast
           </div>
         </div>
@@ -84,7 +87,7 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
               justifyContent: 'center',
               width: '220px',
               height: '220px',
-              borderRadius: '24px',
+              borderRadius: '0px',
               border: `6px solid ${tierColor}`,
               background: `${tierColor}15`,
               fontSize: '180px',
@@ -97,14 +100,14 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
             {tier}
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', flex: 1 }}>
-            <div style={{ fontSize: '22px', color: '#8a929c', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
+            <div style={{ fontSize: '22px', color: '#79917f', letterSpacing: '0.25em', textTransform: 'uppercase' }}>
               {shortAddr(address)}
             </div>
             <div style={{ fontSize: '68px', fontWeight: 700, lineHeight: 1, fontFamily: 'sans-serif', display: 'flex', alignItems: 'center', gap: '20px' }}>
               <span>{archetypeEmoji}</span>
               <span>{archetype}</span>
             </div>
-            <div style={{ fontSize: '28px', color: '#e8eaed', maxWidth: '700px' }}>{verdict}</div>
+            <div style={{ fontSize: '28px', color: '#d8f0dd', maxWidth: '700px' }}>{verdict}</div>
           </div>
         </div>
 
@@ -123,21 +126,21 @@ export default async function RoastOgImage({ params }: Params): Promise<Response
                 flexDirection: 'column',
                 gap: '6px',
                 padding: '18px 24px',
-                border: '1px solid #1f2429',
+                border: '1px solid #16271c',
                 background: 'rgba(20,22,26,0.7)',
-                borderRadius: '10px',
+                borderRadius: '0px',
                 flex: 1,
               }}
             >
-              <div style={{ fontSize: '14px', color: '#4a525c', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+              <div style={{ fontSize: '14px', color: '#48584c', letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 {s.label}
               </div>
-              <div style={{ fontSize: '36px', fontWeight: 700, color: '#e8eaed' }}>{s.value}</div>
+              <div style={{ fontSize: '36px', fontWeight: 700, color: '#d8f0dd' }}>{s.value}</div>
             </div>
           ))}
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px', fontSize: '18px', color: '#4a525c', letterSpacing: '0.18em' }}>
-          <span>pumpradar.click</span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '24px', fontSize: '18px', color: '#48584c', letterSpacing: '0.18em' }}>
+          <span>pumpterminal.click</span>
           <span>roast your wallet →</span>
         </div>
       </div>

@@ -200,10 +200,10 @@ export const MOCK_GRADUATING: GraduatingToken[] = [
 ];
 
 export const MOCK_NARRATIVES: NarrativeStat[] = [
-  { category: 'AI', count: 1054, percentage: 37, colorVar: '#4dabff' },
-  { category: 'Animal', count: 626, percentage: 22, colorVar: '#ffb547' },
+  { category: 'AI', count: 1054, percentage: 37, colorVar: '#36c6ff' },
+  { category: 'Animal', count: 626, percentage: 22, colorVar: '#ffb000' },
   { category: 'Meme', count: 541, percentage: 19, colorVar: '#ff6bcb' },
-  { category: 'Political', count: 313, percentage: 11, colorVar: '#ff3d5a' },
+  { category: 'Political', count: 313, percentage: 11, colorVar: '#ff4d4d' },
   { category: 'Celebrity', count: 171, percentage: 6, colorVar: '#b87cff' },
-  { category: 'Other', count: 142, percentage: 5, colorVar: '#8a929c' },
+  { category: 'Other', count: 142, percentage: 5, colorVar: '#79917f' },
 ];

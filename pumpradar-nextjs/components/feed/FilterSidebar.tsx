@@ -77,7 +77,7 @@ export function FilterSidebar({ tokens }: FilterSidebarProps = {}): JSX.Element 
             <button
               key={opt}
               onClick={() => setSortBy(opt)}
-              className={`flex-1 border rounded-[3px] p-1.5 font-mono text-[10px] cursor-pointer transition-all duration-100 ${
+              className={`flex-1 border rounded-none p-1.5 font-mono text-[10px] cursor-pointer transition-all duration-100 ${
                 sortBy === opt
                   ? 'bg-text text-bg border-text'
                   : 'bg-bg-elev border-border text-text-dim hover:text-text'
@@ -100,7 +100,7 @@ export function FilterSidebar({ tokens }: FilterSidebarProps = {}): JSX.Element 
             count={counts.get(cat.key) ?? 0}
             dotColor={
               cat.key === 'all'
-                ? '#8a929c'
+                ? '#79917f'
                 : getCategoryColor(cat.key as TokenCategory)
             }
           />
@@ -192,7 +192,7 @@ function FilterRow({ active, onClick, label, count, dotColor }: FilterRowProps):
         {label}
       </span>
       <span
-        className={`text-[10px] px-1.5 py-0.5 rounded-[3px] ${
+        className={`text-[10px] px-1.5 py-0.5 rounded-none ${
           active ? 'bg-green/10 text-green' : 'bg-bg-elev text-text-muted'
         }`}
       >

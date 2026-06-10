@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'PumpRadar — Live PumpFun Intelligence';
+export const alt = 'PUMP TERMINAL — pump.fun trading terminal';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -17,8 +17,8 @@ export default function OpengraphImage(): Response {
           justifyContent: 'space-between',
           padding: '70px',
           background:
-            'radial-gradient(ellipse at top, rgba(0,255,136,0.18) 0%, #0a0b0d 60%)',
-          color: '#e8eaed',
+            'radial-gradient(ellipse at top, rgba(0,255,102,0.18) 0%, #050a07 60%)',
+          color: '#d8f0dd',
           fontFamily: 'monospace',
         }}
       >
@@ -26,39 +26,26 @@ export default function OpengraphImage(): Response {
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
           <svg width="84" height="84" viewBox="0 0 32 32">
             <rect
-              x="1.25"
-              y="1.25"
-              width="29.5"
-              height="29.5"
-              rx="7"
-              fill="rgba(0,255,136,0.10)"
-              stroke="#00ff88"
+              x="1.5"
+              y="1.5"
+              width="29"
+              height="29"
+              fill="rgba(0,255,102,0.10)"
+              stroke="#00ff66"
               strokeWidth="1.6"
             />
-            <path
-              d="M 16 4.5 A 11.5 11.5 0 0 1 27.5 16"
-              stroke="#00ff88"
-              strokeWidth="1.3"
-              strokeOpacity="0.4"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d="M 16 9 A 7 7 0 0 1 23 16"
-              stroke="#00ff88"
-              strokeWidth="1.3"
-              strokeOpacity="0.7"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <circle cx="16" cy="16" r="2.4" fill="#00ff88" />
+            <line x1="1.5" y1="8.5" x2="30.5" y2="8.5" stroke="#00ff66" strokeOpacity="0.4" strokeWidth="1" />
+            <rect x="4" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.9" />
+            <rect x="7.5" y="4.2" width="2" height="2" fill="#00ff66" fillOpacity="0.45" />
+            <path d="M 7 14 L 12.5 18.5 L 7 23" stroke="#00ff66" strokeWidth="2.2" fill="none" />
+            <rect x="16" y="20.6" width="8.5" height="3" fill="#00ff66" />
           </svg>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            <div style={{ fontSize: '46px', letterSpacing: '0.06em', color: '#e8eaed', fontWeight: 700 }}>
-              PUMPRADAR
+            <div style={{ fontSize: '46px', letterSpacing: '0.06em', color: '#d8f0dd', fontWeight: 700, display: 'flex' }}>
+              PUMP<span style={{ color: '#00ff66' }}>_</span>TERMINAL<span style={{ color: '#00ff66' }}>▌</span>
             </div>
-            <div style={{ fontSize: '18px', letterSpacing: '0.25em', color: '#4a525c', textTransform: 'uppercase' }}>
-              live pumpfun intelligence · v0.1
+            <div style={{ fontSize: '18px', letterSpacing: '0.25em', color: '#48584c', textTransform: 'uppercase' }}>
+              pump.fun trading terminal · v0.1
             </div>
           </div>
         </div>
@@ -67,20 +54,20 @@ export default function OpengraphImage(): Response {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div
             style={{
-              fontSize: '88px',
+              fontSize: '84px',
               lineHeight: 1.05,
               fontWeight: 700,
               letterSpacing: '-0.02em',
-              fontFamily: 'sans-serif',
+              fontFamily: 'monospace',
             }}
           >
-            Hunt the next <span style={{ color: '#00ff88' }}>100x</span>
+            Hunt the next <span style={{ color: '#00ff66' }}>100x</span>
             <br />
             before anyone else.
           </div>
-          <div style={{ fontSize: '24px', color: '#8a929c', letterSpacing: '0.02em', maxWidth: '900px' }}>
-            Real-time radar for every pump.fun launch — narrative heat, bonding-curve tracker,
-            graduation alerts, wallet roasts. All live. One terminal.
+          <div style={{ fontSize: '24px', color: '#79917f', letterSpacing: '0.02em', maxWidth: '900px' }}>
+            A trading terminal for every pump.fun launch — narrative heat, bonding-curve
+            tracker, graduation alerts, wallet roasts. All live. One terminal.
           </div>
         </div>
 
@@ -91,18 +78,17 @@ export default function OpengraphImage(): Response {
               key={label}
               style={{
                 padding: '10px 18px',
-                border: '1px solid rgba(0,255,136,0.35)',
-                color: '#00ff88',
+                border: '1px solid rgba(0,255,102,0.35)',
+                color: '#00ff66',
                 fontSize: '18px',
                 letterSpacing: '0.18em',
-                borderRadius: '6px',
               }}
             >
               {label}
             </div>
           ))}
-          <div style={{ marginLeft: 'auto', fontSize: '20px', color: '#4a525c', letterSpacing: '0.18em' }}>
-            pumpradar.click
+          <div style={{ marginLeft: 'auto', fontSize: '20px', color: '#48584c', letterSpacing: '0.18em' }}>
+            pumpterminal.click
           </div>
         </div>
       </div>

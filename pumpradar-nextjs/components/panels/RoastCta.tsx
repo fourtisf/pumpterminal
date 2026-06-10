@@ -20,7 +20,7 @@ export function RoastCta(): JSX.Element {
         className="border border-red/30 rounded-md p-4 text-center relative overflow-hidden"
         style={{
           background:
-            'linear-gradient(135deg, rgba(255, 61, 90, 0.1), rgba(255, 181, 71, 0.05))',
+            'linear-gradient(135deg, rgba(255, 77, 77, 0.1), rgba(255, 176, 0, 0.05))',
         }}
       >
         <div
@@ -44,11 +44,11 @@ export function RoastCta(): JSX.Element {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             placeholder="paste wallet address..."
-            className="flex-1 bg-bg border border-border text-text px-2.5 py-2 font-mono text-[10px] rounded-[3px] outline-none focus:border-red"
+            className="flex-1 bg-bg border border-border text-text px-2.5 py-2 font-mono text-[10px] rounded-none outline-none focus:border-red"
           />
           <button
             type="submit"
-            className="bg-red text-white border-none px-2.5 py-2 font-mono text-[10px] font-bold uppercase tracking-wider rounded-[3px] cursor-pointer transition-all duration-100 hover:bg-[#ff5570] hover:scale-[1.02]"
+            className="bg-red text-white border-none px-2.5 py-2 font-mono text-[10px] font-bold uppercase tracking-wider rounded-none cursor-pointer transition-all duration-100 hover:bg-[#ff5570] hover:scale-[1.02]"
           >
             ROAST
           </button>

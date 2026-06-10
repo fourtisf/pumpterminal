@@ -1,4 +1,4 @@
-# PumpRadar Web — Next.js 14
+# Pump Terminal Web — Next.js 14
 
 Live Feed page converted from HTML prototype to production-ready React components.
 

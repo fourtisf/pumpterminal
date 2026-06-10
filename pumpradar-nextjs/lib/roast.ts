@@ -80,12 +80,12 @@ const ARCHETYPES: Record<Archetype, { emoji: string; line: string }> = {
 };
 
 const TIERS: Record<Tier, { color: string; label: string }> = {
-  S: { color: '#ffb547', label: 'Elite trader — on the leaderboard or close to it.' },
-  A: { color: '#00ff88', label: 'Solid edge. Knows what they’re doing.' },
+  S: { color: '#ffb000', label: 'Elite trader — on the leaderboard or close to it.' },
+  A: { color: '#00ff66', label: 'Solid edge. Knows what they’re doing.' },
   B: { color: '#a3ff9c', label: 'Above average. Catches the occasional banger.' },
   C: { color: '#7ab8ff', label: 'Mid. Aggressively, irredeemably mid.' },
   D: { color: '#ff8a47', label: 'Underwater more often than not.' },
-  F: { color: '#ff3d5a', label: 'Rugged, jeeted, and broke. The trifecta.' },
+  F: { color: '#ff4d4d', label: 'Rugged, jeeted, and broke. The trifecta.' },
 };
 
 const VERDICTS = [

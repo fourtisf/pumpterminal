@@ -27,42 +27,42 @@ const FEATURES: Feature[] = [
     title: 'Real-time launch feed',
     tag: 'sub-second · websocket',
     body: 'Every pump.fun token, the moment it hits the chain. No polling, no refresh.',
-    icon: '⚡',
+    icon: '▶',
     accent: 'green',
   },
   {
     title: 'Narrative heat',
     tag: 'auto-classified',
     body: 'AI, animal, political, celebrity, tech — see which narrative is pumping right now.',
-    icon: '🔥',
+    icon: '◆',
     accent: 'pink',
   },
   {
     title: 'Bonding curve tracker',
     tag: 'graduation alerts',
     body: 'Watch every token climb its curve. Auto-alert at 80% so you exit before the dump.',
-    icon: '📈',
+    icon: '▲',
     accent: 'amber',
   },
   {
     title: 'Risk + dev holding',
     tag: 'derived on-chain',
     body: 'Dev holding from the initial buy. Risk score from holders, dev %, sell pressure.',
-    icon: '🛡',
+    icon: '■',
     accent: 'red',
   },
   {
     title: 'Wallet roast',
     tag: 'shareable',
     body: 'Paste a wallet → degen index + activity chart + a burn card built for X.',
-    icon: '🎯',
+    icon: '◎',
     accent: 'purple',
   },
   {
     title: 'Per-token chart',
     tag: 'live history',
     body: 'Market-cap chart per token, backfilled from the worker and appended as trades land.',
-    icon: '📊',
+    icon: '≡',
     accent: 'blue',
   },
 ];
@@ -98,28 +98,28 @@ export default function HomePage(): JSX.Element {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,255,136,0.12) 0%, transparent 70%)',
+              'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,255,102,0.12) 0%, transparent 70%)',
           }}
         />
         <div className="relative max-w-4xl mx-auto px-5 pt-20 pb-12 text-center">
           <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.3em] mb-4">
-            pumpfun intelligence terminal · v0.1
+            pump.fun trading terminal · v0.1
           </div>
-          <h1 className="font-sans font-semibold text-5xl sm:text-6xl tracking-tight leading-[1.05]">
+          <h1 className="font-mono font-bold text-4xl sm:text-6xl tracking-tight leading-[1.08]">
             Hunt the next{' '}
-            <span className="font-display text-green">100x</span>
+            <span className="text-green glow-green">100x</span>
             <br />
             before anyone else.
           </h1>
           <p className="mt-6 font-mono text-[13px] text-text-dim max-w-xl mx-auto leading-relaxed">
-            Real-time radar for every pump.fun launch. Narrative heat, bonding-curve tracker,
-            graduation alerts, wallet roasts. All live. All in one terminal.
+            A trading terminal for every pump.fun launch. Narrative heat, bonding-curve tracker,
+            graduation alerts, wallet roasts. All live. One terminal.
           </p>
 
           <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
             <Link
               href="/live"
-              className="bg-green text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded transition-all duration-150 hover:bg-green-dim hover:-translate-y-px hover:shadow-[0_4px_16px_rgba(0,255,136,0.3)]"
+              className="bg-green text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded transition-all duration-150 hover:bg-green-dim hover:-translate-y-px hover:shadow-[0_4px_16px_rgba(0,255,102,0.3)]"
             >
               Open the live feed →
             </Link>
@@ -132,15 +132,15 @@ export default function HomePage(): JSX.Element {
           </div>
 
           {/* terminal block */}
-          <div className="mt-12 mx-auto max-w-2xl text-left bg-bg-elev border border-border rounded-lg overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,255,136,0.15)]">
+          <div className="mt-12 mx-auto max-w-2xl text-left bg-bg-elev border border-border rounded-lg overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,255,102,0.15)]">
             <div className="flex items-center gap-1.5 px-4 py-2 border-b border-border bg-bg">
               <span className="w-2.5 h-2.5 rounded-full bg-red/60" />
               <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
               <span className="w-2.5 h-2.5 rounded-full bg-green/60" />
-              <span className="ml-3 font-mono text-[10px] text-text-muted">pumpradar — live</span>
+              <span className="ml-3 font-mono text-[10px] text-text-muted">pump_terminal — live</span>
             </div>
             <pre className="p-5 font-mono text-[12px] leading-relaxed text-text-dim whitespace-pre-wrap">
-{`[ boot  ] pumpradar v0.1 · mainnet
+{`[ boot  ] pump_terminal v0.1 · mainnet
 [  ok   ] pump.fun firehose connected
 [  ok   ] narrative classifier online
 [  ok   ] bonding-curve tracker armed
@@ -234,7 +234,7 @@ export default function HomePage(): JSX.Element {
         <div
           className="border border-green/30 rounded-lg p-8 relative overflow-hidden"
           style={{
-            background: 'radial-gradient(ellipse at top, rgba(0,255,136,0.06) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse at top, rgba(0,255,102,0.06) 0%, transparent 60%)',
           }}
         >
           <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.3em] mb-2">
@@ -250,7 +250,7 @@ export default function HomePage(): JSX.Element {
           <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
             <Link
               href="/pricing"
-              className="bg-gradient-to-r from-amber to-green text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded hover:brightness-110"
+              className="bg-amber text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded hover:brightness-110 hover:shadow-[0_0_16px_rgba(255,176,0,0.35)]"
             >
               See what&apos;s in Pro →
             </Link>
@@ -263,7 +263,7 @@ export default function HomePage(): JSX.Element {
 
       <footer className="border-t border-border bg-bg-elev py-6 px-5 font-mono text-[10px] text-text-muted uppercase tracking-wider">
         <div className="max-w-5xl mx-auto flex items-center justify-between flex-wrap gap-3">
-          <span>pumpradar · v0.1 · mainnet beta</span>
+          <span>pump_terminal · v0.1 · mainnet beta</span>
           <span className="text-text-muted">not financial advice · trade at your own risk</span>
           <div className="flex items-center gap-4">
             <Link href="/live" className="hover:text-green">live</Link>
@@ -274,7 +274,7 @@ export default function HomePage(): JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 hover:text-green"
-              aria-label="PumpRadar on X"
+              aria-label="Pump Terminal on X"
               title={SOCIAL.x.handle}
             >
               <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

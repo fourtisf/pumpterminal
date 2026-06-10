@@ -31,7 +31,7 @@ export function useWatchAlerts(tokens: readonly Token[]): void {
       try {
         const n = new Notification(`$${t.symbol} near graduation`, {
           body: `${Math.round(t.bondingCurveProgress * 100)}% bonding curve · ${t.holdersCount} holders`,
-          tag: `pumpradar:${t.mintAddress}`,
+          tag: `pumpterminal:${t.mintAddress}`,
           icon: t.imageUrl ?? undefined,
         });
         n.onclick = () => {
