@@ -20,7 +20,7 @@ Deploy tetap bisa jalan duluan — SSL bisa dipasang belakangan (lihat bawah).
 ## 2. Jalankan di VPS (sebagai root)
 
 ```bash
-git clone -b claude/inspiring-darwin-vhs3nd https://github.com/fourtisf/pumpterminal.git /root/pumpterminal
+git clone https://github.com/fourtisf/pumpterminal.git /root/pumpterminal
 cd /root/pumpterminal
 bash deploy/deploy.sh
 ```
