@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
+import { TerminalChrome } from '@/components/layout/TerminalChrome';
 import { SOCIAL } from '@/lib/social';
 import '@/styles/globals.css';
 
@@ -57,7 +58,10 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en" className={jetbrains.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <TerminalChrome />
+      </body>
     </html>
   );
 }

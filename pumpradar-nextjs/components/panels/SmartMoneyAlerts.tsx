@@ -13,13 +13,13 @@ interface SmartMoneyAlertsProps {
 export function SmartMoneyAlerts({ alerts, live = false }: SmartMoneyAlertsProps): JSX.Element {
   const usingLive = live;
   const rows = usingLive ? (alerts ?? []) : MOCK_ALERTS;
-  const title = usingLive ? 'LIVE ALERTS' : 'SMART MONEY ALERTS';
+  const title = usingLive ? 'LIVE_ALERTS' : 'SMART_MONEY';
 
   return (
     <div className="mb-7">
-      <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] mb-3 flex items-center justify-between">
+      <div className="term-panel-title">
         <span>{title}</span>
-        <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-none text-[9px]">
+        <span className="text-green bg-green/[0.08] border border-green/20 px-1.5 py-0.5 text-[9px]">
           {usingLive ? 'LIVE' : `${rows.length} NEW`}
         </span>
       </div>

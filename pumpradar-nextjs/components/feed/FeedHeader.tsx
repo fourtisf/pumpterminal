@@ -77,7 +77,7 @@ function CtrlButton({
       className={cn(
         'border px-2.5 sm:px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider rounded cursor-pointer transition-all duration-100 inline-flex items-center gap-1.5 whitespace-nowrap',
         active
-          ? 'text-green border-green bg-green/[0.05]'
+          ? 'text-green border-green bg-green/[0.05] shadow-[2px_2px_0_0_rgba(0,255,102,0.15)]'
           : 'bg-bg-elev border-border text-text-dim hover:text-text hover:border-border-bright',
       )}
     >

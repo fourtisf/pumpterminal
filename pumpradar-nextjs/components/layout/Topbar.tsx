@@ -37,7 +37,7 @@ export function Topbar(): JSX.Element {
 
   return (
     <header
-      className="sticky top-0 z-[100] h-14 flex items-center gap-3 sm:gap-6 px-4 sm:px-5 border-b border-border backdrop-blur-xl"
+      className="sticky top-0 z-[100] h-14 flex items-center gap-3 sm:gap-6 px-4 sm:px-5 border-b border-border backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,255,102,0.07),0_12px_32px_-16px_rgba(0,255,102,0.18)]"
       style={{ background: 'rgba(5, 10, 7, 0.9)' }}
     >
       <Link href="/" className="flex items-center gap-2.5 text-text no-underline">
@@ -66,8 +66,10 @@ export function Topbar(): JSX.Element {
             }`}
           >
             <span
-              className={`mr-1.5 text-[9px] ${
-                isActive(pathname, item.href) ? 'text-green/70' : 'text-text-muted'
+              className={`mr-1.5 inline-block border px-1 py-px text-[8px] leading-none align-[1px] ${
+                isActive(pathname, item.href)
+                  ? 'text-green/80 border-green/30'
+                  : 'text-text-muted border-border'
               }`}
             >
               {item.fkey}

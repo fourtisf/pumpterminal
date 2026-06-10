@@ -3,11 +3,33 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    /* slashed zeros — unmistakably terminal */
+    font-feature-settings: 'zero' 1;
+  }
+
   html, body {
     @apply bg-bg text-text font-mono antialiased;
     background-image:
       radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 255, 102, 0.05) 0%, transparent 60%);
     overflow-x: hidden;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* reserve room for the fixed bottom status bar */
+  body {
+    padding-bottom: 28px;
+  }
+
+  /* film grain — gives the flat black depth */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   /* CRT scanlines — fixed overlay above everything, never intercepts input */
@@ -24,6 +46,11 @@
       transparent 1px,
       transparent 3px
     );
+  }
+
+  /* phosphor bloom on every green glyph */
+  [class*='text-green'] {
+    text-shadow: 0 0 9px rgba(0, 255, 102, 0.3);
   }
 
   ::selection {
@@ -59,7 +86,44 @@
 
   /* Phosphor glow for key numbers / accents */
   .glow-green {
-    text-shadow: 0 0 10px rgba(0, 255, 102, 0.45);
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.45), 0 0 32px rgba(0, 255, 102, 0.25);
+  }
+
+  /* Primary terminal button — hard offset shadow, tactile press */
+  .btn-term {
+    @apply inline-block bg-green text-black font-mono font-bold uppercase tracking-wider rounded-none;
+    box-shadow: 4px 4px 0 0 rgba(0, 255, 102, 0.22);
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+  }
+  .btn-term:hover {
+    @apply bg-green;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 0 rgba(0, 255, 102, 0.28), 0 0 28px rgba(0, 255, 102, 0.25);
+  }
+  .btn-term:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 rgba(0, 255, 102, 0.3);
+  }
+  .btn-term-amber {
+    @apply bg-amber;
+    box-shadow: 4px 4px 0 0 rgba(255, 176, 0, 0.22);
+  }
+  .btn-term-amber:hover {
+    @apply bg-amber;
+    box-shadow: 6px 6px 0 0 rgba(255, 176, 0, 0.28), 0 0 28px rgba(255, 176, 0, 0.25);
+  }
+
+  /* Unified panel header — ▣ TITLE ───────── */
+  .term-panel-title {
+    @apply font-mono text-[10px] uppercase tracking-[0.2em] text-text-dim flex items-center gap-2 mb-3;
+  }
+  .term-panel-title::before {
+    content: '▣';
+    @apply text-green text-[9px];
+  }
+  .term-panel-title::after {
+    content: '';
+    @apply flex-1 h-px bg-border;
   }
 
   /* Category badges */
@@ -72,4 +136,67 @@
   .badge-political { @apply text-red border-red/30 bg-red/10; }
   .badge-celeb { @apply text-purple border-purple/30 bg-purple/10; }
   .badge-tech { @apply text-green border-green/30 bg-green/10; }
+
+  /* Perspective grid floor for the landing hero */
+  .grid-horizon {
+    position: absolute;
+    left: -25%;
+    right: -25%;
+    bottom: -12%;
+    height: 60%;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(0, 255, 102, 0.13) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 102, 0.13) 1px, transparent 1px);
+    background-size: 44px 44px;
+    transform: perspective(540px) rotateX(63deg);
+    transform-origin: 50% 0;
+    -webkit-mask-image: radial-gradient(ellipse 60% 95% at 50% 0%, black 20%, transparent 72%);
+    mask-image: radial-gradient(ellipse 60% 95% at 50% 0%, black 20%, transparent 72%);
+    opacity: 0.55;
+  }
+
+  /* CSS typewriter — width in steps, caret via border */
+  .type-in {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    border-right: 2px solid rgba(0, 255, 102, 0.8);
+    animation:
+      typing 1.6s steps(34) 0.15s both,
+      caretFade 0.4s step-end 2.2s forwards;
+  }
+
+  /* staggered rise-in for hero elements */
+  .rise   { animation: riseIn 0.65s cubic-bezier(0.2, 0.7, 0.3, 1) both; }
+  .rise-1 { animation-delay: 0.08s; }
+  .rise-2 { animation-delay: 0.18s; }
+  .rise-3 { animation-delay: 0.3s; }
+  .rise-4 { animation-delay: 0.45s; }
+
+  /* irregular phosphor flicker for hero accents */
+  .phosphor-flicker {
+    animation: phosphorFlicker 5s linear infinite;
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes caretFade {
+  to { border-right-color: transparent; }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes phosphorFlicker {
+  0%, 86%, 90%, 94%, 100% { opacity: 1; }
+  88% { opacity: 0.82; }
+  92% { opacity: 0.93; }
 }

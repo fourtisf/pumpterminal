@@ -69,7 +69,7 @@ export function FilterSidebar({ tokens }: FilterSidebarProps = {}): JSX.Element 
   }, [tokens]);
 
   return (
-    <aside className="hidden lg:block border-r border-border py-5 bg-bg sticky top-[88px] h-[calc(100vh-88px)] overflow-y-auto">
+    <aside className="hidden lg:block border-r border-border py-5 bg-bg sticky top-[88px] h-[calc(100vh-116px)] overflow-y-auto">
       {/* Sort */}
       <Section label="Sort By">
         <div className="flex gap-1 px-2">

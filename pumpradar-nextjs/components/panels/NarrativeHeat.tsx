@@ -34,7 +34,7 @@ export function NarrativeHeat({ tokens, live = false }: NarrativeHeatProps): JSX
   const maxPct = Math.max(1, ...narratives.map((n) => n.percentage));
 
   return (
-    <PanelSection title="NARRATIVE HEAT · LIVE FEED" count={live ? 'LIVE' : 'DEMO'}>
+    <PanelSection title="NARRATIVE_HEAT" count={live ? 'LIVE' : 'DEMO'}>
       {narratives.length === 0 ? (
         <div className="font-mono text-[10px] text-text-muted">Waiting for launches…</div>
       ) : (
@@ -76,10 +76,10 @@ function PanelSection({
 }): JSX.Element {
   return (
     <div className="mb-7">
-      <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] mb-3 flex items-center justify-between">
+      <div className="term-panel-title">
         <span>{title}</span>
         {count && (
-          <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-none text-[9px]">
+          <span className="text-green bg-green/[0.08] border border-green/20 px-1.5 py-0.5 text-[9px]">
             {count}
           </span>
         )}

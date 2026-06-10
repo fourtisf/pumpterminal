@@ -78,10 +78,10 @@ export function TokenCard({ token }: TokenCardProps): JSX.Element {
       href={`/token/${token.mintAddress}`}
       className={cn(
         'block bg-bg-elev border rounded-md p-3.5 cursor-pointer transition-all duration-150 relative overflow-hidden group',
-        'hover:-translate-y-px',
+        'hover:-translate-y-px hover:shadow-[3px_3px_0_0_rgba(0,255,102,0.14)]',
         isFresh && 'animate-fresh-glow border-green/40',
         !isFresh && token.hasSmartMoney && 'border-purple/40',
-        !isFresh && !token.hasSmartMoney && 'border-border hover:border-border-bright',
+        !isFresh && !token.hasSmartMoney && 'border-border hover:border-green/40',
       )}
     >
       {/* Hover gradient overlay */}
@@ -92,6 +92,10 @@ export function TokenCard({ token }: TokenCardProps): JSX.Element {
             'linear-gradient(135deg, transparent 0%, rgba(0, 255, 102, 0.04) 100%)',
         }}
       />
+
+      {/* HUD corner ticks on hover */}
+      <span aria-hidden className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-transparent group-hover:border-green/70 transition-colors duration-150 pointer-events-none" />
+      <span aria-hidden className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-transparent group-hover:border-green/70 transition-colors duration-150 pointer-events-none" />
 
       {/* Smart money badge — top right */}
       {token.hasSmartMoney && (
@@ -192,7 +196,7 @@ function Avatar({
         alt={initials}
         loading="lazy"
         onError={() => setErrored(true)}
-        className="w-12 h-12 rounded-md flex-shrink-0 object-cover border border-border bg-bg-elev-2"
+        className="w-12 h-12 rounded-md flex-shrink-0 object-cover border border-border bg-bg-elev-2 ring-1 ring-green/10 ring-offset-1 ring-offset-bg-elev"
       />
     );
   }

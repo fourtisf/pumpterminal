@@ -31,8 +31,8 @@ export function RoastCta(): JSX.Element {
           🔥
         </div>
 
-        <div className="font-display text-base text-text mb-1 tracking-tight">
-          Get Roasted
+        <div className="font-mono text-base font-bold text-text mb-1 tracking-tight">
+          <span className="text-red">&gt;</span> Get Roasted
         </div>
         <div className="font-mono text-[10px] text-text-dim mb-3">
           See how badly you trade. Share to flex.
@@ -48,7 +48,7 @@ export function RoastCta(): JSX.Element {
           />
           <button
             type="submit"
-            className="bg-red text-white border-none px-2.5 py-2 font-mono text-[10px] font-bold uppercase tracking-wider rounded-none cursor-pointer transition-all duration-100 hover:bg-[#ff5570] hover:scale-[1.02]"
+            className="bg-red text-white border-none px-2.5 py-2 font-mono text-[10px] font-bold uppercase tracking-wider rounded-none cursor-pointer transition-all duration-100 shadow-[2px_2px_0_0_rgba(255,77,77,0.25)] hover:bg-[#ff5570] hover:-translate-x-px hover:-translate-y-px hover:shadow-[3px_3px_0_0_rgba(255,77,77,0.3)] active:translate-x-px active:translate-y-px active:shadow-[1px_1px_0_0_rgba(255,77,77,0.3)]"
           >
             ROAST
           </button>

@@ -83,8 +83,9 @@ export function StatsStrip({ tokens, live = false }: StatsStripProps): JSX.Eleme
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-md overflow-hidden mb-6">
       {stats.map((stat) => (
-        <div key={stat.label} className="bg-bg-elev p-4">
+        <div key={stat.label} className="bg-bg-elev p-4 transition-colors duration-150 hover:bg-bg-elev-2 group">
           <div className="font-mono text-[9px] text-text-muted uppercase tracking-[0.15em] mb-1.5">
+            <span className="text-green/50 mr-1.5 group-hover:text-green transition-colors">▪</span>
             {stat.label}
           </div>
           <div className="font-mono text-[22px] font-bold text-text leading-none tracking-tight">

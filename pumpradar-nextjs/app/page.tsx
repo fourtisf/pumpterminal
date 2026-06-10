@@ -101,53 +101,53 @@ export default function HomePage(): JSX.Element {
               'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,255,102,0.12) 0%, transparent 70%)',
           }}
         />
+        <div aria-hidden className="grid-horizon" />
         <div className="relative max-w-4xl mx-auto px-5 pt-20 pb-12 text-center">
           <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.3em] mb-4">
-            pump.fun trading terminal · v0.1
+            <span className="type-in">pump.fun trading terminal · v0.1</span>
           </div>
-          <h1 className="font-mono font-bold text-4xl sm:text-6xl tracking-tight leading-[1.08]">
+          <h1 className="rise rise-1 font-mono font-bold text-4xl sm:text-6xl tracking-tight leading-[1.08]">
             Hunt the next{' '}
-            <span className="text-green glow-green">100x</span>
+            <span className="text-green glow-green phosphor-flicker">100x</span>
             <br />
             before anyone else.
           </h1>
-          <p className="mt-6 font-mono text-[13px] text-text-dim max-w-xl mx-auto leading-relaxed">
+          <p className="rise rise-2 mt-6 font-mono text-[13px] text-text-dim max-w-xl mx-auto leading-relaxed">
             A trading terminal for every pump.fun launch. Narrative heat, bonding-curve tracker,
             graduation alerts, wallet roasts. All live. One terminal.
           </p>
 
-          <div className="mt-8 flex items-center justify-center gap-3 flex-wrap">
-            <Link
-              href="/live"
-              className="bg-green text-black px-5 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider rounded transition-all duration-150 hover:bg-green-dim hover:-translate-y-px hover:shadow-[0_4px_16px_rgba(0,255,102,0.3)]"
-            >
+          <div className="rise rise-3 mt-8 flex items-center justify-center gap-4 flex-wrap">
+            <Link href="/live" className="btn-term px-5 py-2.5 text-[12px]">
               Open the live feed →
             </Link>
             <Link
               href="/pricing"
-              className="border border-border-bright text-text px-5 py-2.5 font-mono text-[12px] uppercase tracking-wider rounded hover:border-green hover:text-green"
+              className="border border-border-bright text-text px-5 py-2.5 font-mono text-[12px] uppercase tracking-wider rounded hover:border-green hover:text-green hover:shadow-[0_0_20px_rgba(0,255,102,0.12)] transition-all duration-150"
             >
               See pricing
             </Link>
           </div>
 
           {/* terminal block */}
-          <div className="mt-12 mx-auto max-w-2xl text-left bg-bg-elev border border-border rounded-lg overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,255,102,0.15)]">
+          <div className="rise rise-4 mt-12 mx-auto max-w-2xl text-left bg-bg-elev/90 border border-border rounded-lg overflow-hidden shadow-[0_20px_80px_-20px_rgba(0,255,102,0.2),0_0_0_1px_rgba(0,255,102,0.06)] backdrop-blur-sm">
             <div className="flex items-center gap-1.5 px-4 py-2 border-b border-border bg-bg">
               <span className="w-2.5 h-2.5 rounded-full bg-red/60" />
               <span className="w-2.5 h-2.5 rounded-full bg-amber/60" />
               <span className="w-2.5 h-2.5 rounded-full bg-green/60" />
               <span className="ml-3 font-mono text-[10px] text-text-muted">pump_terminal — live</span>
+              <span className="ml-auto font-mono text-[9px] text-text-muted tracking-[0.2em]">TTY1</span>
             </div>
             <pre className="p-5 font-mono text-[12px] leading-relaxed text-text-dim whitespace-pre-wrap">
-{`[ boot  ] pump_terminal v0.1 · mainnet
-[  ok   ] pump.fun firehose connected
-[  ok   ] narrative classifier online
-[  ok   ] bonding-curve tracker armed
-[  ok   ] wallet roaster loaded `}<span className="text-red">🔥</span>
+<span className="text-amber">[ boot  ]</span>{` pump_terminal v0.1 · mainnet
+`}<span className="text-green">[  ok   ]</span>{` pump.fun firehose connected
+`}<span className="text-green">[  ok   ]</span>{` narrative classifier online
+`}<span className="text-green">[  ok   ]</span>{` bonding-curve tracker armed
+`}<span className="text-green">[  ok   ]</span>{` wallet roaster loaded `}<span className="text-red">🔥</span>
 {`
-[ live  ] watching every launch so you don't have to
-[ ready ] ▶ `}<span className="text-green">/live</span>
+`}<span className="text-blue">[ live  ]</span>{` watching every launch so you don't have to
+`}<span className="text-green">[ ready ]</span>{` ▶ `}<span className="text-green">/live</span>
+<span className="term-cursor ml-1 align-middle" aria-hidden />
             </pre>
           </div>
 

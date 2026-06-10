@@ -28,9 +28,9 @@ export function GraduatingPanel({ tokens, live = false }: GraduatingPanelProps):
 
   return (
     <div className="mb-7">
-      <div className="font-mono text-[10px] text-text-muted uppercase tracking-[0.2em] mb-3 flex items-center justify-between">
-        <span>ABOUT TO GRADUATE</span>
-        <span className="text-green bg-green/[0.08] px-1.5 py-0.5 rounded-none text-[9px]">
+      <div className="term-panel-title">
+        <span>ABOUT_TO_GRADUATE</span>
+        <span className="text-green bg-green/[0.08] border border-green/20 px-1.5 py-0.5 text-[9px]">
           {rows.length}
         </span>
       </div>
