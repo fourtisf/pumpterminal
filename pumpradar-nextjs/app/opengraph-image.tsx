@@ -24,18 +24,24 @@ export default function OpengraphImage(): Response {
       >
         {/* top row: logo + brand */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
-          <svg width="84" height="84" viewBox="0 0 32 32">
+          <svg width="84" height="84" viewBox="0 0 32 32" fill="none">
             <defs>
-              <linearGradient id="d" x1="0" y1="1" x2="1" y2="0">
+              <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#00c24e" />
                 <stop offset="55%" stopColor="#00ff66" />
                 <stop offset="100%" stopColor="#5eead4" />
               </linearGradient>
+              <linearGradient id="line" x1="6" y1="22" x2="22" y2="8" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#00ff66" />
+                <stop offset="100%" stopColor="#5eead4" />
+              </linearGradient>
             </defs>
-            <circle cx="16" cy="16" r="14.5" fill="url(#d)" />
-            <ellipse cx="12" cy="9" rx="9" ry="5.5" fill="#ffffff" opacity="0.18" />
-            <path d="M 8.5 20.5 L 13.5 15 L 16.5 17.8 L 23.5 10.5" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            <path d="M 19.6 10.5 L 23.5 10.5 L 23.5 14.4" stroke="#03130a" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009" />
+            <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" strokeWidth="1.5" />
+            <path d="M 6.6 20.8 H 11.6 L 14 23.4 L 21.2 9.2" stroke="url(#line)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="21.2" cy="9.2" r="2" fill="#00ff66" />
+            <circle cx="21.2" cy="9.2" r="0.9" fill="#eafff2" />
+            <path d="M 23.6 16.2 H 25.6" stroke="#00ff66" strokeOpacity="0.35" strokeWidth="1.6" strokeLinecap="round" />
           </svg>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
             <div style={{ fontSize: '46px', letterSpacing: '-0.02em', color: '#d8f0dd', fontWeight: 700, display: 'flex' }}>
