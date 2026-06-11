@@ -69,6 +69,9 @@ export function TerminalChrome(): JSX.Element {
         <span className="hidden md:flex items-center px-3 text-text-muted">
           PUMPTERMINAL v0.1
         </span>
+        <span className="hidden sm:flex items-center px-3 border-l border-border text-amber tracking-[0.2em]">
+          CA · COMING SOON
+        </span>
 
         <span className="ml-auto hidden lg:flex items-center px-3 border-l border-border text-text-muted">
           CTRL+K <span className="ml-1.5 text-text-dim">PALETTE</span>
