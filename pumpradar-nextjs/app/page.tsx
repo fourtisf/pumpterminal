@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Topbar } from '@/components/layout/Topbar';
 import { TickerTape } from '@/components/layout/TickerTape';
+import { CaChip } from '@/components/CaChip';
 import { LandingLive } from '@/components/landing/LandingLive';
 import { LivePreview } from '@/components/landing/LivePreview';
 import { SOCIAL } from '@/lib/social';
@@ -130,10 +131,7 @@ export default function HomePage(): JSX.Element {
           </div>
 
           <div className="rise rise-3 mt-5 flex justify-center">
-            <div className="inline-flex items-center gap-2.5 border border-amber/40 bg-amber/[0.06] px-3.5 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.25em] text-amber shadow-[0_0_18px_rgba(255,176,0,0.12)]">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber animate-pulse-dot" />
-              CA · Coming Soon
-            </div>
+            <CaChip />
           </div>
 
           {/* terminal window — real launches streaming above the fold */}

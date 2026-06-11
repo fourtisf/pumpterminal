@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { CommandPalette } from '@/components/CommandPalette';
+import { CONTRACT_ADDRESS, shortCa } from '@/lib/ca';
 import { useConnectionStore } from '@/lib/connection-store';
 import { useTickerPrices } from '@/hooks/use-ticker-prices';
 
@@ -34,6 +35,17 @@ export function TerminalChrome(): JSX.Element {
   const { solPrice } = useTickerPrices();
   const status = useConnectionStore((s) => s.status);
   const [mounted, setMounted] = useState(false);
+  const [caCopied, setCaCopied] = useState(false);
+
+  const copyCa = async (): Promise<void> => {
+    try {
+      await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+      setCaCopied(true);
+      setTimeout(() => setCaCopied(false), 1600);
+    } catch {
+      window.prompt('Contract address:', CONTRACT_ADDRESS);
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -69,9 +81,14 @@ export function TerminalChrome(): JSX.Element {
         <span className="hidden md:flex items-center px-3 text-text-muted">
           PUMPTERMINAL v0.1
         </span>
-        <span className="hidden sm:flex items-center px-3 border-l border-border text-amber tracking-[0.2em]">
-          CA · COMING SOON
-        </span>
+        <button
+          type="button"
+          onClick={copyCa}
+          title={`${CONTRACT_ADDRESS} — click to copy`}
+          className="hidden sm:flex items-center px-3 border-l border-border text-green tracking-[0.15em] hover:bg-bg-elev-2 transition-colors"
+        >
+          {caCopied ? 'CA COPIED ✓' : `CA ${shortCa()} ⧉`}
+        </button>
 
         <span className="ml-auto hidden lg:flex items-center px-3 border-l border-border text-text-muted">
           CTRL+K <span className="ml-1.5 text-text-dim">PALETTE</span>
