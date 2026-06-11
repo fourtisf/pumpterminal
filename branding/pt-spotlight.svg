@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00c24e"/><stop offset="55%" stop-color="#00ff66"/><stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="body" x1="16" y1="12" x2="16" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5eead4"/><stop offset="45%" stop-color="#00ff66"/><stop offset="100%" stop-color="#00c24e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="90%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="spot" cx="50%" cy="52%" r="46%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/>
+      <stop offset="55%" stop-color="#00ff66" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.10"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="beamR" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5eead4" stop-opacity="0.08"/><stop offset="100%" stop-color="#5eead4" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="winrim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#27452f"/><stop offset="50%" stop-color="#00ff66" stop-opacity="0.55"/><stop offset="100%" stop-color="#27452f"/>
+    </linearGradient>
+    <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.10"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="sq"><rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <filter id="winShadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="22"/></filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 H 0 V 46" fill="none" stroke="#00ff66" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+    <g id="mark">
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009"/>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="url(#glow)"/>
+      <g clip-path="url(#sq)"><ellipse cx="11" cy="3.4" rx="12" ry="3.2" fill="#ffffff" opacity="0.06"/></g>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" stroke-width="1.3" fill="none"/>
+      <path d="M 16 6.2 V 25.4" stroke="#00ff66" stroke-opacity="0.55" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="url(#body)"/>
+      <circle cx="16" cy="6.2" r="1.7" fill="#00ff66"/>
+      <circle cx="16" cy="6.2" r="0.8" fill="#eafff2"/>
+    </g>
+  </defs>
+
+  <!-- stage -->
+  <rect width="1600" height="900" fill="#030605"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#spot)"/>
+  <polygon points="120,0 480,0 900,900 540,900" fill="url(#beamL)"/>
+  <polygon points="1120,0 1480,0 1060,900 700,900" fill="url(#beamR)"/>
+
+  <!-- HUD corners -->
+  <path d="M 30 48 V 30 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1552 30 H 1570 V 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 30 782 V 800 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1570 782 V 800 H 1552" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+
+  <!-- headline -->
+  <text x="800" y="138" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="19" letter-spacing="9" fill="#79917f">PUMP.FUN TRADING TERMINAL — FREE · NO SIGNUP</text>
+  <text x="800" y="226" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="86" fill="#d8f0dd" letter-spacing="-3.5">The terminal is <tspan fill="#00ff66">live.</tspan></text>
+
+  <!-- window shadow + reflection -->
+  <rect x="320" y="330" width="960" height="450" fill="#000000" opacity="0.7" filter="url(#winShadow)"/>
+  <rect x="320" y="318" width="960" height="450" fill="#00ff66" opacity="0.10" filter="url(#winShadow)"/>
+  <rect x="360" y="800" width="880" height="56" fill="url(#reflect)"/>
+
+  <!-- ===== app window ===== -->
+  <rect x="300" y="290" width="1000" height="490" fill="#070f0a"/>
+  <rect x="300" y="290" width="1000" height="490" fill="none" stroke="url(#winrim)" stroke-width="1.6"/>
+
+  <!-- titlebar -->
+  <rect x="300" y="290" width="1000" height="36" fill="#050a07"/>
+  <line x1="300" y1="326" x2="1300" y2="326" stroke="#16271c" stroke-width="1.4"/>
+  <circle cx="322" cy="308" r="5" fill="#ff4d4d" opacity="0.6"/>
+  <circle cx="340" cy="308" r="5" fill="#ffb000" opacity="0.6"/>
+  <circle cx="358" cy="308" r="5" fill="#00ff66" opacity="0.6"/>
+  <rect x="640" y="297" width="320" height="22" fill="#0a120c" stroke="#16271c"/>
+  <text x="800" y="312" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#79917f">pumpterminal.click/live</text>
+  <rect x="1238" y="297" width="48" height="22" fill="none" stroke="#00ff66" stroke-opacity="0.45"/>
+  <text x="1248" y="312" font-family="DejaVu Sans Mono, monospace" font-size="11" fill="#00ff66" letter-spacing="2">LIVE</text>
+
+  <!-- mini topbar -->
+  <g transform="translate(318,334) scale(0.78)"><use href="#mark"/></g>
+  <text x="350" y="352" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="15" fill="#d8f0dd" letter-spacing="-0.3">PumpTerminal</text>
+  <g font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#5a6b60" letter-spacing="1">
+    <text x="500" y="351" fill="#00ff66">F1 LIVE</text>
+    <text x="572" y="351">F2 TRENDING</text>
+    <text x="678" y="351">F3 NARRATIVES</text>
+    <text x="798" y="351">F4 GRADUATING</text>
+  </g>
+  <rect x="1196" y="335" width="88" height="22" fill="#00ff66"/>
+  <text x="1212" y="350" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="10" fill="#02160a" letter-spacing="1">UPGRADE</text>
+  <line x1="300" y1="364" x2="1300" y2="364" stroke="#16271c" stroke-width="1.2"/>
+
+  <!-- ticker -->
+  <g font-family="DejaVu Sans Mono, monospace" font-size="10.5">
+    <text x="318" y="383"><tspan fill="#d8f0dd" font-weight="bold">SOL</tspan> <tspan fill="#79917f">$64.02</tspan> <tspan fill="#ff4d4d">▼ -4.66%</tspan>   <tspan fill="#27452f">│</tspan>   <tspan fill="#d8f0dd" font-weight="bold">$PNUT</tspan> <tspan fill="#79917f">$41.5M MC</tspan> <tspan fill="#00ff66">▲ +1.7%</tspan>   <tspan fill="#27452f">│</tspan>   <tspan fill="#d8f0dd" font-weight="bold">$GOAT</tspan> <tspan fill="#79917f">$12.7M MC</tspan> <tspan fill="#ff4d4d">▼ -5.3%</tspan>   <tspan fill="#27452f">│</tspan>   <tspan fill="#d8f0dd" font-weight="bold">$WIF</tspan> <tspan fill="#79917f">$152M MC</tspan> <tspan fill="#ff4d4d">▼ -2.1%</tspan></text>
+  </g>
+  <line x1="300" y1="394" x2="1300" y2="394" stroke="#16271c" stroke-width="1.2"/>
+
+  <!-- cards grid -->
+  <g>
+    <!-- card 1 -->
+    <rect x="318" y="410" width="316" height="120" fill="#0a120c" stroke="#16271c"/>
+    <rect x="332" y="424" width="34" height="34" fill="#143022"/>
+    <text x="349" y="447" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#00ff66">AG</text>
+    <text x="378" y="438" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="13" fill="#d8f0dd">Agent Zero</text>
+    <text x="378" y="455" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#79917f">$AGENT · 31s</text>
+    <rect x="552" y="424" width="68" height="16" fill="#1b1430" stroke="#bd7bff" stroke-opacity="0.4"/>
+    <text x="558" y="436" font-family="DejaVu Sans Mono, monospace" font-size="8.5" fill="#bd7bff">◆ SMART</text>
+    <text x="332" y="486" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">MC</text>
+    <text x="332" y="502" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#d8f0dd">$48.2K</text>
+    <text x="450" y="486" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">B / S</text>
+    <text x="450" y="502" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13"><tspan fill="#00ff66">82</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">12</tspan></text>
+    <rect x="332" y="514" width="288" height="4" fill="#101a12"/>
+    <rect x="332" y="514" width="61" height="4" fill="#00ff66"/>
+    <text x="596" y="505" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#79917f">21%</text>
+
+    <!-- card 2 -->
+    <rect x="650" y="410" width="316" height="120" fill="#0a120c" stroke="#16271c"/>
+    <rect x="664" y="424" width="34" height="34" fill="#30141f"/>
+    <text x="681" y="447" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#ff6bcb">GO</text>
+    <text x="710" y="438" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="13" fill="#d8f0dd">Goatseus Maximus</text>
+    <text x="710" y="455" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#79917f">$GOAT · 2m</text>
+    <text x="664" y="486" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">MC</text>
+    <text x="664" y="502" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#d8f0dd">$12.7M</text>
+    <text x="782" y="486" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">B / S</text>
+    <text x="782" y="502" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13"><tspan fill="#00ff66">98</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">12</tspan></text>
+    <rect x="664" y="514" width="288" height="4" fill="#101a12"/>
+    <rect x="664" y="514" width="253" height="4" fill="url(#body)"/>
+    <text x="928" y="505" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#00ff66">88%</text>
+
+    <!-- card 3 -->
+    <rect x="318" y="546" width="316" height="120" fill="#0a120c" stroke="#16271c"/>
+    <rect x="332" y="560" width="34" height="34" fill="#13202e"/>
+    <text x="349" y="583" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#36c6ff">WF</text>
+    <text x="378" y="574" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="13" fill="#d8f0dd">dogwifhat</text>
+    <text x="378" y="591" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#79917f">$WIF · 5m</text>
+    <text x="332" y="622" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">MC</text>
+    <text x="332" y="638" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#d8f0dd">$152M</text>
+    <text x="450" y="622" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">B / S</text>
+    <text x="450" y="638" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13"><tspan fill="#00ff66">64</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">31</tspan></text>
+    <rect x="332" y="650" width="288" height="4" fill="#101a12"/>
+    <rect x="332" y="650" width="184" height="4" fill="#00ff66"/>
+    <text x="596" y="641" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#79917f">64%</text>
+
+    <!-- card 4 -->
+    <rect x="650" y="546" width="316" height="120" fill="#0a120c" stroke="#16271c"/>
+    <rect x="664" y="560" width="34" height="34" fill="#2e2413"/>
+    <text x="681" y="583" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#ffb000">PN</text>
+    <text x="710" y="574" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="13" fill="#d8f0dd">Peanut the Squirrel</text>
+    <text x="710" y="591" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#79917f">$PNUT · 8m</text>
+    <text x="664" y="622" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">MC</text>
+    <text x="664" y="638" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13" fill="#d8f0dd">$42.1M</text>
+    <text x="782" y="622" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#5a6b60" letter-spacing="1">B / S</text>
+    <text x="782" y="638" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="13"><tspan fill="#00ff66">51</tspan><tspan fill="#5a6b60">/</tspan><tspan fill="#ff4d4d">24</tspan></text>
+    <rect x="664" y="650" width="288" height="4" fill="#101a12"/>
+    <rect x="664" y="650" width="219" height="4" fill="#00ff66"/>
+    <text x="928" y="641" font-family="DejaVu Sans Mono, monospace" font-size="9" fill="#79917f">76%</text>
+  </g>
+
+  <!-- right rail -->
+  <line x1="982" y1="394" x2="982" y2="780" stroke="#16271c" stroke-width="1.2"/>
+  <text x="1000" y="424" font-family="DejaVu Sans Mono, monospace" font-size="10" letter-spacing="2"><tspan fill="#00ff66">▣</tspan> <tspan fill="#79917f">NARRATIVE HEAT</tspan></text>
+  <g font-family="DejaVu Sans Mono, monospace" font-size="10">
+    <text x="1000" y="450" fill="#79917f">AI</text>
+    <rect x="1072" y="441" width="150" height="9" fill="#101a12"/><rect x="1072" y="441" width="134" height="9" fill="#36c6ff"/>
+    <text x="1284" y="450" text-anchor="end" fill="#d8f0dd" font-weight="bold">37%</text>
+    <text x="1000" y="476" fill="#79917f">ANIMAL</text>
+    <rect x="1072" y="467" width="150" height="9" fill="#101a12"/><rect x="1072" y="467" width="80" height="9" fill="#ffb000"/>
+    <text x="1284" y="476" text-anchor="end" fill="#d8f0dd" font-weight="bold">22%</text>
+    <text x="1000" y="502" fill="#79917f">MEME</text>
+    <rect x="1072" y="493" width="150" height="9" fill="#101a12"/><rect x="1072" y="493" width="69" height="9" fill="#ff6bcb"/>
+    <text x="1284" y="502" text-anchor="end" fill="#d8f0dd" font-weight="bold">19%</text>
+  </g>
+  <text x="1000" y="556" font-family="DejaVu Sans Mono, monospace" font-size="10" letter-spacing="2"><tspan fill="#00ff66">▣</tspan> <tspan fill="#79917f">ABOUT TO GRADUATE</tspan></text>
+  <g font-family="DejaVu Sans Mono, monospace" font-size="11">
+    <text x="1000" y="584" fill="#d8f0dd" font-weight="bold">$AGENT</text>
+    <rect x="1086" y="576" width="136" height="8" fill="#101a12"/><rect x="1086" y="576" width="125" height="8" fill="url(#body)"/>
+    <text x="1284" y="584" text-anchor="end" fill="#00ff66" font-weight="bold">92%</text>
+    <text x="1000" y="612" fill="#d8f0dd" font-weight="bold">$GOAT</text>
+    <rect x="1086" y="604" width="136" height="8" fill="#101a12"/><rect x="1086" y="604" width="120" height="8" fill="url(#body)"/>
+    <text x="1284" y="612" text-anchor="end" fill="#00ff66" font-weight="bold">88%</text>
+  </g>
+  <rect x="1000" y="648" width="284" height="36" fill="none" stroke="#00ff66" stroke-opacity="0.35"/>
+  <circle cx="1022" cy="666" r="3.5" fill="#00ff66"/>
+  <text x="1034" y="671" font-family="DejaVu Sans Mono, monospace" font-size="11" fill="#00ff66" letter-spacing="2">STREAMING · ON-CHAIN</text>
+
+  <!-- window status strip -->
+  <rect x="300" y="752" width="1000" height="28" fill="#050a07"/>
+  <line x1="300" y1="752" x2="1300" y2="752" stroke="#16271c" stroke-width="1.2"/>
+  <rect x="300" y="752" width="76" height="28" fill="#00ff66"/>
+  <text x="312" y="771" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="11" fill="#02160a" letter-spacing="2">▮ LIVE</text>
+  <text x="392" y="771" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#5a6b60" letter-spacing="2">MAINNET·SOLANA</text>
+  <text x="1284" y="771" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="10" fill="#5a6b60" letter-spacing="2">CTRL+K PALETTE · 06:04:26 UTC</text>
+
+  <!-- footer -->
+  <text x="800" y="858" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-size="18" fill="#00ff66" letter-spacing="4">▶ pumpterminal.click</text>
+</svg>
