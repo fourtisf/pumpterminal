@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00c24e"/><stop offset="55%" stop-color="#00ff66"/><stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="body" x1="16" y1="12" x2="16" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5eead4"/><stop offset="45%" stop-color="#00ff66"/><stop offset="100%" stop-color="#00c24e"/>
+    </linearGradient>
+    <linearGradient id="pinkAv" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff6bcb"/><stop offset="100%" stop-color="#ff4d6d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="90%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pageGlow" cx="30%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.09"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 H 0 V 46" fill="none" stroke="#00ff66" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="60%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="gridMask"><rect width="1600" height="900" fill="url(#fadeY)"/></mask>
+    <g id="mark">
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009"/>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="url(#glow)"/>
+      <g clip-path="url(#sq)"><ellipse cx="11" cy="3.4" rx="12" ry="3.2" fill="#ffffff" opacity="0.06"/></g>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" stroke-width="1.3" fill="none"/>
+      <path d="M 16 6.2 V 25.4" stroke="#00ff66" stroke-opacity="0.55" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="url(#body)"/>
+      <circle cx="16" cy="6.2" r="1.7" fill="#00ff66"/>
+      <circle cx="16" cy="6.2" r="0.8" fill="#eafff2"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="900" fill="#050a07"/>
+  <rect width="1600" height="900" fill="url(#pageGlow)"/>
+  <rect width="1600" height="900" fill="url(#grid)" mask="url(#gridMask)"/>
+
+  <path d="M 30 48 V 30 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1552 30 H 1570 V 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 30 782 V 800 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1570 782 V 800 H 1552" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+
+  <!-- left text -->
+  <g transform="translate(120,118) scale(2.1)"><use href="#mark"/></g>
+  <text x="124" y="320" font-family="DejaVu Sans Mono, monospace" font-size="20" letter-spacing="8" fill="#00ff66">WALLET INTEL — LIVE ON-CHAIN</text>
+  <text x="118" y="412" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5">Know who you&#8217;re</text>
+  <text x="118" y="492" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5">trading <tspan fill="#00ff66">against.</tspan></text>
+  <text x="122" y="556" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">Paste any Solana address — balance, holdings,</text>
+  <text x="122" y="592" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">tx velocity, whale tags, bot detection. Live.</text>
+  <text x="122" y="668" font-family="DejaVu Sans Mono, monospace" font-size="19" letter-spacing="3" fill="#00ff66">▶ pumpterminal.click/wallet</text>
+
+  <!-- right panel: wallet card -->
+  <rect x="880" y="140" width="588" height="572" fill="#0a120c" stroke="#16271c" stroke-width="1.5"/>
+  <rect x="880" y="140" width="588" height="40" fill="#071009" stroke="#16271c" stroke-width="1.5"/>
+  <circle cx="902" cy="160" r="5" fill="#ff4d4d" opacity="0.6"/>
+  <circle cx="920" cy="160" r="5" fill="#ffb000" opacity="0.6"/>
+  <circle cx="938" cy="160" r="5" fill="#00ff66" opacity="0.6"/>
+  <text x="958" y="165" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">wallet intel — BQVz7f…6kPRmB</text>
+  <rect x="1402" y="148" width="52" height="24" fill="none" stroke="#00ff66" stroke-opacity="0.4"/>
+  <text x="1414" y="165" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#00ff66" letter-spacing="2">LIVE</text>
+
+  <!-- profile row -->
+  <rect x="912" y="208" width="64" height="64" fill="url(#pinkAv)"/>
+  <text x="944" y="248" text-anchor="middle" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="20" fill="#1a0510">BQ</text>
+  <text x="996" y="234" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="24" fill="#d8f0dd">BQVz7f…6kPRmB</text>
+  <rect x="996" y="248" width="118" height="26" fill="none" stroke="#00ff66" stroke-opacity="0.45"/>
+  <text x="1008" y="266" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#00ff66" letter-spacing="1">ACTIVE TRADER</text>
+  <rect x="1124" y="248" width="68" height="26" fill="none" stroke="#ffb000" stroke-opacity="0.5"/>
+  <text x="1136" y="266" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#ffb000" letter-spacing="1">WHALE</text>
+  <rect x="1202" y="248" width="110" height="26" fill="none" stroke="#ff4d4d" stroke-opacity="0.5"/>
+  <text x="1214" y="266" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#ff4d4d" letter-spacing="1">BOT SUSPECT</text>
+  <circle cx="1002" cy="292" r="4" fill="#00ff66"/>
+  <text x="1014" y="297" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#79917f">live · last active 48 seconds ago</text>
+
+  <line x1="880" y1="322" x2="1468" y2="322" stroke="#16271c" stroke-width="1.4"/>
+
+  <!-- stats 2x2 -->
+  <g font-family="DejaVu Sans Mono, monospace">
+    <text x="912" y="362" font-size="12" fill="#5a6b60" letter-spacing="2">TOTAL PORTFOLIO</text>
+    <text x="912" y="404" font-size="34" font-weight="bold" fill="#00ff66">$10.9K</text>
+    <text x="912" y="430" font-size="12" fill="#5a6b60">150.22 SOL + tokens</text>
+
+    <text x="1200" y="362" font-size="12" fill="#5a6b60" letter-spacing="2">SOL BALANCE</text>
+    <text x="1200" y="404" font-size="34" font-weight="bold" fill="#d8f0dd">150.219</text>
+    <text x="1200" y="430" font-size="12" fill="#5a6b60">~$9.8K</text>
+
+    <text x="912" y="486" font-size="12" fill="#5a6b60" letter-spacing="2">HOLDINGS</text>
+    <text x="912" y="528" font-size="34" font-weight="bold" fill="#d8f0dd">$1.1K</text>
+    <text x="912" y="554" font-size="12" fill="#5a6b60">384 tokens</text>
+
+    <text x="1200" y="486" font-size="12" fill="#5a6b60" letter-spacing="2">TX VELOCITY</text>
+    <text x="1200" y="528" font-size="34" font-weight="bold" fill="#ffb000">~100/day</text>
+    <text x="1200" y="554" font-size="12" fill="#5a6b60">high-velocity wallet</text>
+  </g>
+
+  <line x1="880" y1="580" x2="1468" y2="580" stroke="#16271c" stroke-width="1.4"/>
+
+  <!-- analysis + roast -->
+  <text x="912" y="618" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#5a6b60" letter-spacing="2">ANALYSIS</text>
+  <text x="912" y="646" font-family="DejaVu Sans Mono, monospace" font-size="14" fill="#79917f">Consistency grade <tspan fill="#00ff66" font-weight="bold">A</tspan> · bot-pattern flags raised</text>
+  <rect x="1318" y="616" width="118" height="40" fill="#ff4d4d"/>
+  <text x="1340" y="642" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="15" fill="#ffffff" letter-spacing="2">ROAST →</text>
+  <text x="912" y="688" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">…then post the roast card and tag them. we&#8217;ll wait.</text>
+
+  <!-- status bar with CA -->
+  <rect x="0" y="836" width="1600" height="64" fill="#070f0a"/>
+  <rect x="0" y="836" width="1600" height="2" fill="#16271c"/>
+  <rect x="0" y="836" width="150" height="64" fill="#00ff66"/>
+  <text x="34" y="876" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="20" fill="#02160a" letter-spacing="3">▮ LIVE</text>
+  <text x="186" y="876" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#79917f" letter-spacing="3">MAINNET·SOLANA</text>
+  <text x="520" y="876" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#00ff66" letter-spacing="2">CA 5teQ…pump</text>
+  <text x="1566" y="876" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="20" fill="#00ff66" letter-spacing="3">pumpterminal.click</text>
+</svg>
