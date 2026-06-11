@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="rim" x1="4" y1="28" x2="28" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00c24e"/><stop offset="55%" stop-color="#00ff66"/><stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <linearGradient id="body" x1="16" y1="12" x2="16" y2="23" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#5eead4"/><stop offset="45%" stop-color="#00ff66"/><stop offset="100%" stop-color="#00c24e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="80%" r="90%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.16"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pageGlow" cx="30%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#00ff66" stop-opacity="0.09"/><stop offset="100%" stop-color="#00ff66" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="sq"><rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 H 0 V 46" fill="none" stroke="#00ff66" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fadeY" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/><stop offset="60%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="gridMask"><rect width="1600" height="900" fill="url(#fadeY)"/></mask>
+    <g id="mark">
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="#071009"/>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" fill="url(#glow)"/>
+      <g clip-path="url(#sq)"><ellipse cx="11" cy="3.4" rx="12" ry="3.2" fill="#ffffff" opacity="0.06"/></g>
+      <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="8.8" stroke="url(#rim)" stroke-width="1.3" fill="none"/>
+      <path d="M 16 6.2 V 25.4" stroke="#00ff66" stroke-opacity="0.55" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="12.6" y="12.4" width="6.8" height="10" rx="2" fill="url(#body)"/>
+      <circle cx="16" cy="6.2" r="1.7" fill="#00ff66"/>
+      <circle cx="16" cy="6.2" r="0.8" fill="#eafff2"/>
+    </g>
+  </defs>
+
+  <rect width="1600" height="900" fill="#050a07"/>
+  <rect width="1600" height="900" fill="url(#pageGlow)"/>
+  <rect width="1600" height="900" fill="url(#grid)" mask="url(#gridMask)"/>
+
+  <path d="M 30 48 V 30 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1552 30 H 1570 V 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 30 782 V 800 H 48" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+  <path d="M 1570 782 V 800 H 1552" stroke="#00ff66" stroke-opacity="0.4" stroke-width="2" fill="none"/>
+
+  <!-- left text -->
+  <g transform="translate(120,118) scale(2.1)"><use href="#mark"/></g>
+  <text x="124" y="320" font-family="DejaVu Sans Mono, monospace" font-size="20" letter-spacing="8" fill="#00ff66">LIVE DATA — LAST 24H</text>
+  <text x="118" y="412" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5"><tspan fill="#00ff66">10,731</tspan> launches.</text>
+  <text x="118" y="492" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="68" fill="#d8f0dd" letter-spacing="-2.5">Every single one.</text>
+  <text x="122" y="556" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">Auto-classified into narratives in real time —</text>
+  <text x="122" y="592" font-family="DejaVu Sans Mono, monospace" font-size="21" fill="#79917f">see which meta is heating up before CT does.</text>
+  <text x="122" y="668" font-family="DejaVu Sans Mono, monospace" font-size="19" letter-spacing="3" fill="#00ff66">▶ pumpterminal.click/narratives</text>
+
+  <!-- right panel: real narrative heat -->
+  <rect x="900" y="150" width="568" height="552" fill="#0a120c" stroke="#16271c" stroke-width="1.5"/>
+  <rect x="900" y="150" width="568" height="40" fill="#071009" stroke="#16271c" stroke-width="1.5"/>
+  <circle cx="922" cy="170" r="5" fill="#ff4d4d" opacity="0.6"/>
+  <circle cx="940" cy="170" r="5" fill="#ffb000" opacity="0.6"/>
+  <circle cx="958" cy="170" r="5" fill="#00ff66" opacity="0.6"/>
+  <text x="978" y="175" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">narrative heat — 24h</text>
+  <rect x="1402" y="158" width="52" height="24" fill="none" stroke="#00ff66" stroke-opacity="0.4"/>
+  <text x="1414" y="175" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#00ff66" letter-spacing="2">LIVE</text>
+
+  <!-- OTHER -->
+  <text x="930" y="238" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="19" fill="#d8f0dd">■ Other</text>
+  <text x="1438" y="238" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#79917f">7,731 · <tspan fill="#d8f0dd" font-weight="bold">72%</tspan></text>
+  <rect x="930" y="252" width="508" height="13" fill="#101a12"/>
+  <rect x="930" y="252" width="366" height="13" fill="#5a6b60"/>
+  <text x="930" y="290" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">Top: $PIGGA $A $Cheated $pissed</text>
+
+  <!-- MEME -->
+  <text x="930" y="348" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="19" fill="#ff6bcb">■ Meme</text>
+  <text x="1438" y="348" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#79917f">1,359 · <tspan fill="#d8f0dd" font-weight="bold">13%</tspan></text>
+  <rect x="930" y="362" width="508" height="13" fill="#101a12"/>
+  <rect x="930" y="362" width="66" height="13" fill="#ff6bcb"/>
+  <text x="930" y="400" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">Top: $MAMA $JOB $MUNDANE $USDJC</text>
+
+  <!-- ANIMAL -->
+  <text x="930" y="458" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="19" fill="#ffb000">■ Animal</text>
+  <text x="1438" y="458" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#79917f">712 · <tspan fill="#d8f0dd" font-weight="bold">7%</tspan></text>
+  <rect x="930" y="472" width="508" height="13" fill="#101a12"/>
+  <rect x="930" y="472" width="36" height="13" fill="#ffb000"/>
+  <text x="930" y="510" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">Top: $INU $GG $SUSDOG $BERD</text>
+
+  <!-- AI -->
+  <text x="930" y="568" font-family="DejaVu Sans, Arial, sans-serif" font-weight="bold" font-size="19" fill="#36c6ff">■ AI</text>
+  <text x="1438" y="568" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="17" fill="#79917f">397 · <tspan fill="#d8f0dd" font-weight="bold">4%</tspan></text>
+  <rect x="930" y="582" width="508" height="13" fill="#101a12"/>
+  <rect x="930" y="582" width="20" height="13" fill="#36c6ff"/>
+  <text x="930" y="620" font-family="DejaVu Sans Mono, monospace" font-size="13" fill="#5a6b60">Top: $AiBank $MAYEH3 $NICCA $SLM</text>
+
+  <rect x="930" y="646" width="508" height="34" fill="none" stroke="#00ff66" stroke-opacity="0.35"/>
+  <circle cx="950" cy="663" r="3.5" fill="#00ff66"/>
+  <text x="962" y="668" font-family="DejaVu Sans Mono, monospace" font-size="12" fill="#00ff66" letter-spacing="2">10,731 TOKENS CLASSIFIED · STREAMING LIVE</text>
+
+  <!-- status bar with CA -->
+  <rect x="0" y="836" width="1600" height="64" fill="#070f0a"/>
+  <rect x="0" y="836" width="1600" height="2" fill="#16271c"/>
+  <rect x="0" y="836" width="150" height="64" fill="#00ff66"/>
+  <text x="34" y="876" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="20" fill="#02160a" letter-spacing="3">▮ LIVE</text>
+  <text x="186" y="876" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#79917f" letter-spacing="3">MAINNET·SOLANA</text>
+  <text x="520" y="876" font-family="DejaVu Sans Mono, monospace" font-size="19" fill="#00ff66" letter-spacing="2">CA 5teQ…pump</text>
+  <text x="1566" y="876" text-anchor="end" font-family="DejaVu Sans Mono, monospace" font-size="20" fill="#00ff66" letter-spacing="3">pumpterminal.click</text>
+</svg>
